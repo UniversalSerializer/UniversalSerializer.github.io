@@ -1,0 +1,129 @@
+<!DOCTYPE HTML>
+<html dir="ltr" lang="en">
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="content-type" />
+<meta content="en" http-equiv="content-language" />
+<meta content="Christophe Bertrand" name="author" />
+<title>UniversalSerializer - Attributes</title>
+<link href="../../styles/style2.css" media="screen" rel="stylesheet" title="CSS" type="text/css" />
+<link href="../../favicon.png" rel="icon" type="image/png" />
+<link href="../../favicon.ico" rel="shortcut icon" type="image/x-icon" />
+</head>
+
+<body>
+
+<div id="container">
+<div id="masthead" role="banner">
+<div id="logo_ext">
+<img id="logo" alt="" height="66" src="../../images/logo.png" width="150" /></div>
+<div id="md">
+<div id="nh">
+<ul>
+<li><a href="../contact.html">Contact</a></li>
+<li><a href="../author.html">The author</a></li>
+</ul>
+</div>
+<div class="navigation" role="navigation">
+<ul>
+<li><a href="../index.html">UniversalSerializer</a></li>
+<li><a href="../download.html">Download</a></li>
+<li><a href="index.html">Documentation</a></li>
+<li><a href="history.html">Versions</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="page_content" role="main">
+<div class="navigation"  style="width: 100%; margin: 0 auto;">
+<div style="float: left; width: 2%;transform: rotate(270deg); transform-origin: 160% 160%;font-size:large">DOCU</div>
+<div style="background-color: #408080; float: right; width: 98%;">
+<div role="navigation">
+<ul>
+<li><a href="index.html">Presentation</a></li>
+<li><a href="examples.html">Examples</a></li>
+<li><a href="solutions_and_projects.html">Solutions and projects (DLLs)</a></li>
+<li><a href="good_practices.html">Good practices</a></li>
+<li><a href="attributes.html">Attributes</a></li>
+<li><a href="containers.html">Containers</a></li>
+<li><a href="filters.html">Filters</a></li>
+<li><a href="errors.html">Errors on execution</a></li>
+<li><a href="license.html">License</a></li>
+<li><a href="history.html">History</a></li>
+</ul>
+</div>
+</div>
+</div>
+<h1>Attributes</h1>
+<p>
+UniversalSerializer normally does not need attributes, unlike BinaryFormatter or SoapFormatter for example.<br>
+Nevertheless, it can take some attributes into account, when needed.<br>
+</p>
+
+<table style="text-align: left; width: 98%;">
+<tbody>
+<tr>
+<th style="vertical-align: top;">Attribute<br>
+</th>
+<th style="vertical-align: top;">Usage<br>
+</th>
+</tr>
+<tr>
+<td style="vertical-align: top;">UniversalSerializerLib3.<strong>ForceSerializeAttribute</strong></td>
+<td style="vertical-align: top;">Orders UniversalSerializer to serialize this field or property, not taking into account other attributes.</td>
+</tr>
+<tr>
+<td style="vertical-align: top;">UniversalSerializerLib3.<strong>ForceNotSerializeAttribute</strong></td>
+<td style="vertical-align: top;">Orders UniversalSerializer to never serialize this field or property, not taking into account other attributes.</td>
+</tr>
+<tr>
+<td style="vertical-align: top;">System.<strong>NonSerializedAttribute</strong><br>
+</td>
+<td style="vertical-align: top;">Orders the serializer to not serialize a field.<br>
+Comes from BinaryFormatter.<br>
+Can not be applied to a property.<br>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: top;">System.Xml.Serialization.<strong>XmlIgnoreAttribute</strong><br>
+</td>
+<td style="vertical-align: top;">Orders the serializer to not serialize a field or a property.<br>
+
+Comes from XmlSerializer.
+</td>
+</tr>
+    
+<tr>
+<td style="vertical-align: top;">System.ComponentModel.<strong>EditorBrowsableAttribute</strong><br>
+</td>
+<td style="vertical-align: top;">Normally, orders the IDE to not present the element (field, property, class, etc).<br>
+UniversalSerializer interpret<span>s</span> it differently and does not serialize the field or property.<br>
+</td>
+</tr>
+    
+</tbody>
+</table>
+<p><br>
+</p>
+
+<p><br>
+</p>
+<p><br>
+</p>
+	
+</div>
+<div id="footer" role="navigation">
+<ul>
+<li><a href="../index.html">UniversalSerializer</a></li>
+<li><a href="../download.html">Download</a></li>
+<li><a href="index.html">Documentation</a></li>
+<li><a href="history.html">Versions</a></li>
+</ul>
+</div>
+</div>
+<div id="footer2">
+<p>Copyright &copy; Christophe Bertrand. All rights reserved.</p>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE HTML>
+<html dir="ltr" lang="en">
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="content-type" />
+<meta content="en" http-equiv="content-language" />
+<meta content="Christophe Bertrand" name="author" />
+<title>UniversalSerializer - Presentation</title>
+<link href="../../styles/style2.css" media="screen" rel="stylesheet" title="CSS" type="text/css" />
+<link href="../../favicon.png" rel="icon" type="image/png" />
+<link href="../../favicon.ico" rel="shortcut icon" type="image/x-icon" />
+</head>
+
+<body>
+
+<div id="container">
+<div id="masthead" role="banner">
+<div id="logo_ext">
+<img id="logo" alt="" height="66" src="../../images/logo.png" width="150" /></div>
+<div id="md">
+<div id="nh">
+<ul>
+<li><a href="../contact.html">Contact</a></li>
+<li><a href="../author.html">The author</a></li>
+</ul>
+</div>
+<div class="navigation" role="navigation">
+<ul>
+<li><a href="../index.html">UniversalSerializer</a></li>
+<li><a href="../download.html">Download</a></li>
+<li><a href="index.html">Documentation</a></li>
+<li><a href="history.html">Versions</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="page_content" role="main">
+<div class="navigation"  style="width: 100%; margin: 0 auto;">
+<div style="float: left; width: 2%;transform: rotate(270deg); transform-origin: 160% 160%;font-size:large">DOCU</div>
+<div style="background-color: #408080; float: right; width: 98%;">
+<div role="navigation">
+<ul>
+<li><a href="index.html">Presentation</a></li>
+<li><a href="examples.html">Examples</a></li>
+<li><a href="solutions_and_projects.html">Solutions and projects (DLLs)</a></li>
+<li><a href="good_practices.html">Good practices</a></li>
+<li><a href="attributes.html">Attributes</a></li>
+<li><a href="containers.html">Containers</a></li>
+<li><a href="filters.html">Filters</a></li>
+<li><a href="errors.html">Errors on execution</a></li>
+<li><a href="license.html">License</a></li>
+<li><a href="history.html">History</a></li>
+</ul>
+</div>
+</div>
+</div>
+<h1>Presentation of UniversalSerializer</h1>
+<p><a href="http://universalserializer.com/en/index.html">UniversalSerializer</a> is a free open-source advanced serializer for .NET .<br>It can serialize very complex types, as WPF's Window for example.</p>
+<div role="navigation">
+<ul id="mozToc">
+<li><a href="#characteristics">Some characteristics</a></li>
+<li><a href="#Article">Technical article</a></li>
+<li><a href="#mozTocId208519">DLLs</a></li>
+</ul>
+</div>
+<h2><a id="characteristics"></a>Some characteristics</h2>
+<ul class="liste_compacte">
+<li>No need to add attributes nor interfaces to the types (classes &amp; structures).</li>
+<li>A class instance can be referenced multiple times (it is not duplicated).</li>
+<li>Circular references are allowed.</li>
+<li>Existing serialization or transcoding mechanisms are reused. Currently: <code>[Serializable]</code>, <code>ISerializable</code>, <code>[ValueSerializer]</code>, and <code>[TypeConverter]</code>.</li>
+<li>Types with no default constructor are allowed, if a parametric constructor can be found (it is automatic).</li>
+<li>Not-generic <code>ICollection</code> classes can be serialized if an Add or an Insert method can be found (private or public functions are found automatically).</li>
+</ul>
+<h2><a id="Article"></a>Technical article</h2>
+<p>You can read <a href="http://www.codeproject.com/Articles/620154/UniversalSerializer">the article</a> I wrote on CodeProject.<br>It presents UniversalSerializer in details, and explains its origin and some of the techniques I introduced for it.</p>
+<h2><a id="mozTocId208519" class="mozTocH2"></a>DLLs</h2>
+There are 9 available libraries:
+<ul>
+<li>
+<p><em>UniversalSerializer3.dll</em><br>The main general DLL for <strong>.NET 4</strong> or later, with very few framework dependencies.</p>
+</li>
+<li>
+<p><em>UniversalSerializer3.dll</em><br>The same general DLL, optimized for <strong>.NET 4.5</strong>. <br></p>
+</li>
+<li><em>UniversalSerializer3.dll</em><br>The same general DLL, for <strong>.NET 3.5</strong>.</li>
+<li>
+<p><em>UniversalSerializer3ForSilverlight.dll</em><br>For <strong>Silverlight</strong> 5 or later.<br>It should be compilable for Silverlight 4 (not tested).<br></p>
+</li>
+<li>
+<p><em>UniversalSerializerPortableLib3.dll</em><br>A <strong>Portable</strong> Class Library (PCL) you can use on many frameworks. Tested under .NET. It should be usable under Windows Store 8, Windows RT in general, MonoDroid, etc.<br>But since I do not use these frameworks, I let you try and give feedback. :)</p>
+</li>
+<li>
+<p><em>UniversalSerializerWPF3.dll</em><br>A specialized DLL for <strong>WPF</strong>, that manages specific WPF types.</p>
+</li>
+<li>
+<p><em>UniversalSerializerWinForm3.dll</em><br>A specialized DLL for <strong>Windows Forms</strong>, that manages specific Windows Forms types.</p>
+</li>
+<li><em>UniversalSerializer3ForWindowsPhone7.dll</em><br>For Windows <strong>Phone 7.5+ (Silverlight)</strong>.<br>Please read important notes in its directory.<br></li>
+<li>
+<p><em>UniversalSerializer3ForWindowsPhone8.dll</em><br>For Windows <strong>Phone 8 (Silverlight)</strong>.</p>
+</li>
+</ul>
+<p></p>
+<p>&nbsp;</p>
+</div>
+<div id="footer" role="navigation">
+<ul>
+<li><a href="../index.html">UniversalSerializer</a></li>
+<li><a href="../download.html">Download</a></li>
+<li><a href="index.html">Documentation</a></li>
+<li><a href="history.html">Versions</a></li>
+</ul>
+</div>
+</div>
+<div id="footer2">
+<p>Copyright &copy; Christophe Bertrand. All rights reserved.</p>
+</div>
+</body>
+
+</html>
