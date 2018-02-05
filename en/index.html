@@ -1,141 +1,17 @@
-<!DOCTYPE html>
-<html dir="ltr" lang="en">
+﻿<!DOCTYPE html>
+<html lang="en">
 
 <head>
-<meta content="text/html; charset=utf-8" http-equiv="content-type" />
-<meta content="en" http-equiv="content-language" />
-<meta content="Christophe Bertrand" name="author" />
-<title>UniversalSerializer</title>
-<link href="../styles/style2.css" media="screen" rel="stylesheet" title="CSS" type="text/css" />
-<link href="../favicon.png" rel="icon" type="image/png" />
-<link href="../favicon.ico" rel="shortcut icon" type="image/x-icon" />
+<meta charset="UTF-8" />
+<meta content="0; url=../index.html" http-equiv="Refresh" />
+<title>Redirection</title>
+<meta content="noindex" name="robots" />
 </head>
 
 <body>
 
-<div id="container">
-<div id="masthead" role="banner">
-<div id="logo_ext">
-<img id="logo" alt="" height="66" src="../images/logo.png" width="150" /></div>
-<div id="md">
-<div id="nh">
-<ul>
-<li><a href="contact.html">Contact</a></li>
-<li><a href="author.html">The author</a></li>
-</ul>
-</div>
-<div class="navigation" role="navigation">
-<ul>
-<li><a href="index.html">UniversalSerializer</a></li>
-<li><a href="download.html">Download</a></li>
-<li><a href="documentation/index.html">Documentation</a></li>
-<li><a href="documentation/history.html">Versions</a></li>
-</ul>
-</div>
-</div>
-</div>
-<div id="page_content" role="main">
-<h1>UniversalSerializer, a versatile data serialization library</h1>
-<p style="text-align: center; font-size:x-large; color: #6AA343;">Class/structure instances ↔ file stream</p>
-<p>Download it <a href="../files/UniversalSerializer3.15.3.13_930A6878A05D7943E9575FAD48E2B6065EBE074FFD933D00BC33EEE2B01B15A7.rar">here</a>.</p>
-<div >
-<a href="http://www.codeproject.com/Articles/620154/UniversalSerializer">
-<img alt="" height="403" src="../images/universalserializer_benchmark_total_resources.png" style="float: right; height: 87px; width: 150px; margin-left: 20px; margin-right: 20px" width="690" /></a>
-<h2>What is UniversalSerializer ?</h2>
-<p>UniversalSerializer is a data serialization library for .NET/Mono/PCL/Windows Phone.<br>In other words, it saves and loads complex object values/instances to and from a file stream. The stream format can be binary, JSON, or XML.<br>The ability to serialize any type is its vocation.<br>It is free and <a href="documentation/license.html">open-source</a>.</p>
-<p>It contains DLLs for:</p>
-<ul>
-<li>.NET 3.5, 4.0, 4.5 or later.</li>
-<li>Silverlight 4 or later.</li>
-<li>Portable Class Library 4.</li>
-<li>Windows Phone 7 &amp; 8 (Silverlight).</li>
-<li>An additional DLL for specific WPF's types.</li>
-<li>An additional DLL for specific Windows Form's types.</li>
-</ul>
-<h2>Examples of usage</h2>
-<h3><a id="Example_file"></a>Example with a file name</h3>
-<pre ><span style="color:#2239a8; font-weight:bold">var</span> data <span style="color:#000000">=</span> <span style="color:#2239a8; font-weight:bold">new</span> <span style="color:#a8227b">Hashtable</span><span style="color:#000000">();</span> data<span style="color:#000000">.</span><span style="color:#a8227b">Add</span><span style="color:#000000">(</span><span style="color:#a8660d">0</span><span style="color:#000000">,</span> <span style="color:#a8660d">1</span><span style="color:#000000">);</span>
-<span style="color:#2239a8; font-weight:bold">using</span> <span style="color:#000000">(</span><span style="color:#2239a8; font-weight:bold">var</span> s <span style="color:#000000">=</span> <span style="color:#2239a8; font-weight:bold">new</span> <span style="color:#a8227b">UniversalSerializer</span><span style="color:#000000">(<strong>&#64;</strong></span><span style="color:#a8660d"><strong>&quot;c:\temp\serialized.bin&quot;</strong></span><span style="color:#000000">))</span>
-<span style="color:#000000">{</span>
-s<span style="color:#000000">.</span><span style="color:#a8227b">Serialize</span><span style="color:#000000">(</span>data<span style="color:#000000">);</span>
-<span style="color:#2239a8; font-weight:bold">var</span> data2 <span style="color:#000000">=</span> s<span style="color:#000000">.</span>Deserialize<span style="color:#000000">&lt;</span>Hashtable<span style="color:#000000">&gt;();</span>
-<span style="color:#000000">}</span>
-</pre>
-<p>That is that simple!</p>
-<h3><a id="mozTocId675539"></a>Example with a stream</h3>
-<pre ><span style="color:#2239a8; font-weight:bold">var</span> data <span style="color:#000000">=</span> <span style="color:#2239a8; font-weight:bold">new</span> <span style="color:#a8227b">Hashtable</span><span style="color:#000000">();</span> data<span style="color:#000000">.</span><span style="color:#a8227b">Add</span><span style="color:#000000">(</span><span style="color:#a8660d">0</span><span style="color:#000000">,</span> <span style="color:#a8660d">1</span><span style="color:#000000">);</span>
-<span style="color:#2239a8; font-weight:bold">using</span> <span style="color:#000000">(</span><span style="color:#2239a8; font-weight:bold">var</span> ms <span style="color:#000000">=</span> <span style="color:#2239a8; font-weight:bold">new</span> <span style="color:#a8227b">MemoryStream</span><span style="color:#000000">())</span>
-<span style="color:#000000">{</span> 
-<span style="color:#2239a8; font-weight:bold">var</span> s <span style="color:#000000">=</span> <span style="color:#2239a8; font-weight:bold">new</span> <span style="color:#a8227b">UniversalSerializer</span><span style="color:#000000">(</span><strong>ms</strong><span style="color:#000000">);</span> 
-s<span style="color:#000000">.</span><span style="color:#a8227b">Serialize</span><span style="color:#000000">(</span>data<span style="color:#000000">);</span>  
-<span style="color:#2239a8; font-weight:bold">var</span> data2 <span style="color:#000000">=</span> s<span style="color:#000000">.</span>Deserialize<span style="color:#000000">&lt;</span>Hashtable<span style="color:#000000">&gt;();</span>
-<span style="color:#000000">}</span>
-</pre>
-<h3><a id="mozTocId797405"></a>Example to XML</h3>
-<pre><span style="color:#2239a8; font-weight:bold">var</span> data <span style="color:#000000">=</span> <span style="color:#2239a8; font-weight:bold">new</span> <span style="color:#a8227b">Hashtable</span><span style="color:#000000">();</span> data<span style="color:#000000">.</span><span style="color:#a8227b">Add</span><span style="color:#000000">(</span><span style="color:#a8660d">0</span><span style="color:#000000">,</span> <span style="color:#a8660d">1</span><span style="color:#000000">);</span>
-<span style="color:#2239a8; font-weight:bold">using</span> <span style="color:#000000">(</span>FileStream fs <span style="color:#000000">=</span> <span style="color:#2239a8; font-weight:bold">new</span> <span style="color:#a8227b">FileStream</span><span style="color:#000000">(</span><span style="color:#a8660d">&quot;TestXmlFormatter.xml&quot;</span><span style="color:#000000">,</span> FileMode<span style="color:#000000">.</span>Create<span style="color:#000000">))
-{</span>
-Parameters parameters <span style="color:#000000">=</span> <span style="color:#2239a8; font-weight:bold">new</span> <span style="color:#a8227b">Parameters</span><span style="color:#000000">()</span>
-<span style="color:#000000">{</span> 
-Stream <span style="color:#000000">=</span> fs<span style="color:#000000">,</span> <strong>SerializerFormatter </strong><span style="color:#000000"><strong>=</strong></span> <strong>SerializerFormatters</strong><span style="color:#000000"><strong>.</strong></span><strong>XmlSerializationFormatter</strong> 
-<span style="color:#000000">};</span>
-UniversalSerializer ser <span style="color:#000000">=</span> <span style="color:#2239a8; font-weight:bold">new</span> <span style="color:#a8227b">UniversalSerializer</span><span style="color:#000000">(</span>parameters<span style="color:#000000">);</span>
+<div style="text-align:center;margin-top: 50vh;transform: translateY(-50%);font-size:x-large;font-family:Verdana, Geneva, Tahoma, sans-serif"><a href="en/index.html">Enter site</a></div>
 
-<span style="color:#2239a8; font-weight:bold">var</span> data <span style="color:#000000">=</span> <span style="color:#2239a8; font-weight:bold">new</span> <span style="color:#a8227b">Hashtable</span><span style="color:#000000">();</span> data<span style="color:#000000">.</span><span style="color:#a8227b">Add</span><span style="color:#000000">(</span><span style="color:#a8660d">0</span><span style="color:#000000">,</span> <span style="color:#a8660d">1</span><span style="color:#000000">);</span>
-ser<span style="color:#000000">.</span><span style="color:#a8227b">Serialize</span><span style="color:#000000">(</span>data<span style="color:#000000">);</span>
-<span style="color:#2239a8; font-weight:bold">var</span> deserialized <span style="color:#000000">=</span> ser<span style="color:#000000">.</span>Deserialize<span style="color:#000000">&lt;</span>Hashtable<span style="color:#000000">&gt;();</span>
-<span style="color:#000000">}</span> 
-</pre>
-<h3><a id="Example_to_JSON"></a>Example to JSON</h3>
-<pre><span style="color:#2239a8; font-weight:bold">var</span> data <span style="color:#000000">=</span> <span style="color:#2239a8; font-weight:bold">new</span> <span style="color:#a8227b">Hashtable</span><span style="color:#000000">();</span> data<span style="color:#000000">.</span><span style="color:#a8227b">Add</span><span style="color:#000000">(</span><span style="color:#a8660d">0</span><span style="color:#000000">,</span> <span style="color:#a8660d">1</span><span style="color:#000000">);</span>
-<span style="color:#2239a8; font-weight:bold">using</span> <span style="color:#000000">(</span>FileStream fs <span style="color:#000000">=</span> <span style="color:#2239a8; font-weight:bold">new</span> <span style="color:#a8227b">FileStream</span><span style="color:#000000">(</span><span style="color:#a8660d">&quot;TestXmlFormatter.xml&quot;</span><span style="color:#000000">,</span> FileMode<span style="color:#000000">.</span>Create<span style="color:#000000">))</span>
-<span style="color:#000000">{</span>
-Parameters parameters <span style="color:#000000">=</span> <span style="color:#2239a8; font-weight:bold">new</span> <span style="color:#a8227b">Parameters</span><span style="color:#000000">()</span>
-<span style="color:#000000">{</span> 
-Stream <span style="color:#000000">=</span> fs<span style="color:#000000">,</span> <strong>SerializerFormatter </strong><span style="color:#000000"><strong>=</strong></span> <strong>SerializerFormatters</strong><span style="color:#000000"><strong>.</strong></span><strong>JSONSerializationFormatter</strong>
-<span style="color:#000000">};</span>
-UniversalSerializer ser <span style="color:#000000">=</span> <span style="color:#2239a8; font-weight:bold">new</span> <span style="color:#a8227b">UniversalSerializer</span><span style="color:#000000">(</span>parameters<span style="color:#000000">);</span>
-
-ser<span style="color:#000000">.</span><span style="color:#a8227b">Serialize</span><span style="color:#000000">(</span>data<span style="color:#000000">);</span>
-<span style="color:#2239a8; font-weight:bold">var</span> deserialized <span style="color:#000000">=</span> ser<span style="color:#000000">.</span>Deserialize<span style="color:#000000">&lt;</span>Hashtable<span style="color:#000000">&gt;();</span>
-<span style="color:#000000">}</span> 
-</pre>
-<h3>Example for WPF</h3>
-<p>There is a specialized DLL for WPF, that manages more WPF types:</p>
-<pre><span style="color:#2239a8; font-weight:bold">var</span> data <span style="color:#000000">=</span> <span style="color:#2239a8; font-weight:bold">new</span> System<span style="color:#000000">.</span>Windows<span style="color:#000000">.</span><span style="color:#a8227b">Window</span><span style="color:#000000">()</span> { Title = &quot;Hello!&quot; }<span style="color:#000000">;</span>
-<span style="color:#2239a8; font-weight:bold">using</span> <span style="color:#000000">(</span><span style="color:#2239a8; font-weight:bold">var</span> s <span style="color:#000000">=</span> <span style="color:#2239a8; font-weight:bold">new</span> <span style="color:#a8227b">UniversalSerializer<strong>WPF</strong></span><span style="color:#000000">(&#64;</span><span style="color:#a8660d">&quot;c:\temp\serialized.bin&quot;</span><span style="color:#000000">))</span>
-<span style="color:#000000">{</span>
-s<span style="color:#000000">.</span><span style="color:#a8227b">Serialize</span><span style="color:#000000">(</span>data<span style="color:#000000">);</span>
-<span style="color:#2239a8; font-weight:bold">var</span> data2 <span style="color:#000000">=</span> s<span style="color:#000000">.</span>Deserialize<span style="color:#000000">&lt;</span>System<span style="color:#000000">.</span>Windows<span style="color:#000000">.</span>Window<span style="color:#000000">&gt;();</span>
-<span style="color:#000000">}</span>
-</pre>
-<h3><a id="mozTocId257446"></a>Example for Windows Forms</h3>
-<p>There is a specialized DLL for Windows Forms, that manages more Windows Forms types:</p>
-<pre><span style="color:#2239a8; font-weight:bold">var</span> data <span style="color:#000000">=</span> <span style="color:#2239a8; font-weight:bold">new</span> System<span style="color:#000000">.</span>Windows<span style="color:#000000">.</span>Forms<span style="color:#000000">.</span><span style="color:#a8227b">Form</span><span style="color:#000000">()</span> { Text = &quot;Hello!&quot; }<span style="color:#000000">;</span>
-<span style="color:#2239a8; font-weight:bold">using</span> <span style="color:#000000">(</span><span style="color:#2239a8; font-weight:bold">var</span> s <span style="color:#000000">=</span> <span style="color:#2239a8; font-weight:bold">new</span> <span style="color:#a8227b">UniversalSerializer<strong>WinForm</strong></span><span style="color:#000000">(&#64;</span><span style="color:#a8660d">&quot;c:\temp\serialized.bin&quot;</span><span style="color:#000000">))</span>
-<span style="color:#000000">{</span>
-s<span style="color:#000000">.</span><span style="color:#a8227b">Serialize</span><span style="color:#000000">(</span>data<span style="color:#000000">);</span>
-<span style="color:#2239a8; font-weight:bold">var</span> data2 <span style="color:#000000">=</span> s<span style="color:#000000">.</span>Deserialize<span style="color:#000000">&lt;</span>System<span style="color:#000000">.</span>Windows<span style="color:#000000">.</span>Forms<span style="color:#000000">.</span>Form<span style="color:#000000">&gt;();</span>
-<span style="color:#000000">}</span>
-</pre>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-</div>
-</div>
-<div id="footer" role="navigation">
-<ul>
-<li><a href="index.html">UniversalSerializer</a></li>
-<li><a href="download.html">Download</a></li>
-<li><a href="documentation/index.html">Documentation</a></li>
-<li><a href="documentation/history.html">Versions</a></li>
-</ul>
-</div>
-</div>
-<div id="footer2">
-<p>Copyright &copy; Christophe Bertrand. All rights reserved.</p>
-</div>
 </body>
 
 </html>

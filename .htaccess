@@ -1,4 +1,4 @@
 ErrorDocument 404 /404.html
 <IfModule mod_alias.c>
-	Redirect permanent /index.html http://universalserializer.com/en/index.html
+	Redirect permanent /en/index.html /index.html
 </IfModule>
