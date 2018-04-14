@@ -5,6 +5,7 @@
 <meta content="text/html; charset=utf-8" http-equiv="content-type" />
 <meta content="en" http-equiv="content-language" />
 <meta content="Christophe Bertrand" name="author" />
+<meta name="viewport" content="width=device-width" />
 <title>UniversalSerializer - Attributes</title>
 <link href="../styles/style2.css" media="screen" rel="stylesheet" title="CSS" type="text/css" />
 <link href="../favicon.png" rel="icon" type="image/png" />
@@ -20,7 +21,7 @@
 <div id="md">
 <div id="nh">
 <ul>
-<li><a href="../contact.html">Contact</a></li>
+<li><a href="contact.html">Contact</a></li>
 <li><a href="../author.html">The author</a></li>
 </ul>
 </div>
@@ -30,6 +31,7 @@
 <li><a href="../download.html">Download</a></li>
 <li><a href="index.html">Documentation</a></li>
 <li><a href="history.html">Versions</a></li>
+<li><a href="../donate.html">Donate</a></li>
 </ul>
 </div>
 </div>
@@ -42,7 +44,7 @@
 <ul>
 <li><a href="index.html">Presentation</a></li>
 <li><a href="examples.html">Examples</a></li>
-<li><a href="solutions_and_projects.html">Solutions and projects (DLLs)</a></li>
+<li><a href="solutions_and_projects.html">Solutions (DLLs)</a></li>
 <li><a href="good_practices.html">Good practices</a></li>
 <li><a href="attributes.html">Attributes</a></li>
 <li><a href="containers.html">Containers</a></li>
@@ -50,6 +52,7 @@
 <li><a href="errors.html">Errors on execution</a></li>
 <li><a href="license.html">License</a></li>
 <li><a href="history.html">History</a></li>
+<li><a href="faq.html">FAQ</a></li>
 </ul>
 </div>
 </div>
@@ -59,10 +62,11 @@
 Your type design can help
 UniversalSerializer in doing its job.</p>
 <div role="navigation">
-<ul  id="mozToc"><li>
+<ul  id="mozToc">
+<li>
 <a href="#Constructor">An adequate parametric 
 constructor</a></li>
-<li><a href="#List">A true List, not only an Enumerable</a></li>
+<li><a href="#List">A true IList&lt;T&gt;, not only an Enumerable</a></li>
 </ul>
 </div>
 <h2>
@@ -93,18 +97,16 @@ the field "Info", "_Info", "info" or "_info".</p>
 <p>
 &nbsp;</p>
 <h2>
-<a id="List"></a>A true List, not only an Enumerable</h2>
+<a id="List"></a>A true IList&lt;T&gt;, not only an Enumerable</h2>
 <p>
 <span>UniversalSerializer needs to be able to add items to this enumeration in 
-order to deserialize it.<br>Problem: IEnumerable, IEnumerable&lt;T&gt; and ICollection 
-define a read-only collection.</span></p>
+order to deserialize it.<br>Problem: <code>IEnumerable</code>, <code>IEnumerable&lt;T&gt;</code> and <code>ICollection</code> define a read-only collection.</span></p>
 <p class="remarque">
-<span>Please note the generic ICollection&lt;T&gt; is 
-a writable collection while ICollection (not generic) is read-only.</span></p>
+<span>Please note the generic <code>ICollection&lt;T&gt;</code> is 
+a writable collection while <code>ICollection</code> (not generic) is read-only.</span></p>
 <p>
-<span>Suggestion: inherit from IList&lt;T&gt; (generic) or from IList (not generic) when 
-possible.<br><br>If, for some reason, you do not want your type to inherit from 
-IList nor ICollection&lt;T&gt;, you can write a function as Add or Insert.<br>Example:</span><br>
+<span>Suggestion: inherit from <code>IList&lt;T&gt;</code> (generic) or from <code>IList</code> (not generic) when possible.<br><br>If, for some reason, you do not want your type to inherit from 
+<code>IList</code> nor <code>ICollection&lt;T&gt;</code>, you can write a function as <code>Add</code> or <code>Insert</code>.<br>Example:</span><br>
 </p>
 <pre class="code_source"><span style="color:#2239a8; font-weight:bold">public class</span> L <span style="color:#000000">:</span> IEnumerable<span style="color:#000000">&lt;</span><span style="color:#2239a8; font-weight:bold">int</span><span style="color:#000000">&gt;</span>
 <span style="color:#000000">{</span>
@@ -114,7 +116,7 @@ IList nor ICollection&lt;T&gt;, you can write a function as Add or Insert.<br>Ex
 <span style="color:#000000">}</span>
 <span style="color:#000000">...</span>
 <span style="color:#000000">}</span></pre>
-<p class="remarque">Please note this method (Add or Insert) can be private.<br>
+<p class="remarque">Please note this method (<code>Add</code> or <code>Insert</code>) can be private.<br>
 </p>
 </div>
 <div id="footer" role="navigation">
@@ -123,6 +125,7 @@ IList nor ICollection&lt;T&gt;, you can write a function as Add or Insert.<br>Ex
 <li><a href="../download.html">Download</a></li>
 <li><a href="index.html">Documentation</a></li>
 <li><a href="history.html">Versions</a></li>
+<li><a href="../donate.html">Donate</a></li>
 </ul>
 </div>
 </div>

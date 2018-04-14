@@ -5,6 +5,7 @@
 <meta content="text/html; charset=utf-8" http-equiv="content-type" />
 <meta content="en" http-equiv="content-language" />
 <meta content="Christophe Bertrand" name="author" />
+<meta name="viewport" content="width=device-width" />
 <title>UniversalSerializer - Containers</title>
 <link href="../styles/style2.css" media="screen" rel="stylesheet" title="CSS" type="text/css" />
 <link href="../favicon.png" rel="icon" type="image/png" />
@@ -20,7 +21,7 @@
 <div id="md">
 <div id="nh">
 <ul>
-<li><a href="../contact.html">Contact</a></li>
+<li><a href="contact.html">Contact</a></li>
 <li><a href="../author.html">The author</a></li>
 </ul>
 </div>
@@ -30,6 +31,7 @@
 <li><a href="../download.html">Download</a></li>
 <li><a href="index.html">Documentation</a></li>
 <li><a href="history.html">Versions</a></li>
+<li><a href="../donate.html">Donate</a></li>
 </ul>
 </div>
 </div>
@@ -42,7 +44,7 @@
 <ul>
 <li><a href="index.html">Presentation</a></li>
 <li><a href="examples.html">Examples</a></li>
-<li><a href="solutions_and_projects.html">Solutions and projects (DLLs)</a></li>
+<li><a href="solutions_and_projects.html">Solutions (DLLs)</a></li>
 <li><a href="good_practices.html">Good practices</a></li>
 <li><a href="attributes.html">Attributes</a></li>
 <li><a href="containers.html">Containers</a></li>
@@ -50,6 +52,7 @@
 <li><a href="errors.html">Errors on execution</a></li>
 <li><a href="license.html">License</a></li>
 <li><a href="history.html">History</a></li>
+<li><a href="faq.html">FAQ</a></li>
 </ul>
 </div>
 </div>
@@ -61,103 +64,110 @@
 <li><a href="#mozTocId883671">Tool help functions</a></li>
 </ul>
 </div>
-<p>A ITypeContainer is a class you create, that will be serialized in place of another type (structure or class) that would not serialize or would be problematic (not efficient, missing fields, etc.).</p>
-<h2><a id="mozTocId619784"></a>Making a ITypeContainer [ Modified on version 3.14.5 ]</h2>
+<p>A container is a class or structure you create that will be serialized in place of another type (structure or class) that would not serialize or would be problematic (not efficient, missing fields, etc.).<br>It inherits the interface <code>ITypeContainer</code>.</p>
+<h2><a id="mozTocId619784"></a>Making a ITypeContainer</h2>
 <p>The objective is to replace the problematic instance by an easy instance. In general, the container will contain very simple types (<code>string</code>, <code>int</code>, <code>byte</code> array, etc.).</p>
 <p>Let&#39;s take an example:</p>
-<pre lang="cs">
+<pre>
 <span style="color: #558817">/// &lt;summary&gt;</span>
-<span style="color: #558817">/// . No default (no-param) constructor.</span>
+<span style="color: #558817">/// . There is no default (no-param) constructor.</span>
 <span style="color: #558817">/// . The only constructor has a parameter with no corresponding field.</span>
 <span style="color: #558817">/// . ATextBox has a private &apos;set&apos; and is different type from constructor&apos;s parameter.</span>
 <span style="color: #558817">/// &lt;/summary&gt;</span>
 <span style="color: #2239a8; font-weight: bold">public class</span> MyStrangeClassNeedsACustomContainer
 <span style="color: #000000">{</span>
-<span style="color: #558817">/// &lt;summary&gt;</span>
-<span style="color: #558817">/// It is built from the constructor&apos;s parameter.</span>
-<span style="color: #558817">/// Since its &apos;set&apos; method is not public, it will not be serialized directly.</span>
-<span style="color: #558817">/// &lt;/summary&gt;</span>
-<span style="color: #2239a8; font-weight: bold">public</span> TextBox ATextBox { get; private set; }
+<span style="color: #558817"><span lang="fr">	</span>/// &lt;summary&gt;</span>
+<span style="color: #558817"><span lang="fr">	</span>/// It is built from the constructor&apos;s parameter.</span>
+<span style="color: #558817"><span lang="fr">	</span>/// Since its &apos;set&apos; method is not public, it will not be serialized directly.</span>
+<span style="color: #558817"><span lang="fr">	</span>/// &lt;/summary&gt;</span>
+<span style="color: #2239a8; font-weight: bold"><span lang="fr">	</span>public</span> TextBox ATextBox { get; private set; }
 
-<span style="color: #2239a8; font-weight: bold">public</span> <span style="color: #a8227b">MyStrangeClassNeedsACustomContainer</span><span style="color: #000000">(</span><span style="color: #2239a8; font-weight: bold">int</span> NumberAsTitle<span style="color: #000000">)</span>
-<span style="color: #000000">{</span>
-<span style="color: #2239a8; font-weight: bold">this</span><span style="color: #000000">.</span>ATextBox <span style="color: #000000">=</span> <span style="color: #2239a8; font-weight: bold">new</span> <span style="color: #a8227b">TextBox</span><span style="color: #000000">()</span> { Text = NumberAsTitle.ToString() }<span style="color: #000000">;</span>
-<span style="color: #000000">}</span>
+<span style="color: #2239a8; font-weight: bold"><span lang="fr">	</span>public</span> <span style="color: #a8227b">MyStrangeClassNeedsACustomContainer</span><span style="color: #000000">(</span><span style="color: #2239a8; font-weight: bold">int</span> NumberAsTitle<span style="color: #000000">)</span>
+<span style="color: #000000"><span lang="fr">	</span>{</span>
+<span style="color: #2239a8; font-weight: bold"><span lang="fr">		</span>this</span><span style="color: #000000">.</span>ATextBox <span style="color: #000000">=</span> <span style="color: #2239a8; font-weight: bold">new</span> <span style="color: #a8227b">TextBox</span><span style="color: #000000">()</span> { Text = NumberAsTitle.ToString() }<span style="color: #000000">;</span>
+<span style="color: #000000"><span lang="fr">	</span>}</span>
 <span style="color: #000000">}</span>
 </pre>
 <p>As written in the summary, this class causes some difficulties to the serializer(s).</p>
 <p>To overcome the problem, we create a container:</p>
-<pre lang="cs">
+<pre>
 <span style="color: #2239a8; font-weight: bold">class</span> ContainerForMyStrangeClass <span style="color: #000000">:</span> ITypeContainer
 <span style="color: #000000">{</span>
-<span style="color: #0da818">#region Here you add data to be serialized in place of the class instance</span>
+<span style="color: #0da818"><span lang="fr">	</span>#region Here you add data to be serialized in place of the class instance</span>
 
-<span style="color: #2239a8; font-weight: bold">public int</span> AnInteger<span style="color: #000000">;</span> <span style="color: #558817">// We store the smallest, sufficient and necessary data.</span>
+<span style="color: #2239a8; font-weight: bold"><span lang="fr">	</span>public int</span> AnInteger<span style="color: #000000">;</span> <span style="color: #558817">// We store the smallest, sufficient and necessary data.</span>
 
-<span style="color: #0da818">#endregion Here you add data to be serialized in place of the class instance</span>
+<span style="color: #0da818"><span lang="fr">	</span>#endregion Here you add data to be serialized in place of the class instance</span>
 
 
-<span style="color: #2239a8; font-weight: bold">public</span> ITypeContainer <span style="color: #a8227b">CreateNewContainer</span><span style="color: #000000">(</span><span style="color: #2239a8; font-weight: bold">object</span> ContainedObject<span style="color: #000000">)</span>
-<span style="color: #000000">{</span>
-MyStrangeClassNeedsACustomContainer sourceInstance <span style="color: #000000">=</span> ContainedObject <span style="color: #2239a8; font-weight: bold">as</span> MyStrangeClassNeedsACustomContainer<span style="color: #000000">;</span>
-<span style="color: #2239a8; font-weight: bold">return new</span> <span style="color: #a8227b">ContainerForMyStrangeClass</span><span style="color: #000000">()</span> { AnInteger = int.Parse(sourceInstance.ATextBox.Text) }<span style="color: #000000">;</span>
-<span style="color: #000000">}</span>
+<span style="color: #2239a8; font-weight: bold"><span lang="fr">	</span>public</span> ITypeContainer <span style="color: #a8227b">CreateNewContainer</span><span style="color: #000000">(</span><span style="color: #2239a8; font-weight: bold">object</span> ContainedObject<span style="color: #000000">)</span>
+<span style="color: #000000"><span lang="fr">	</span>{</span>
+<span lang="fr">		</span>MyStrangeClassNeedsACustomContainer sourceInstance <span style="color: #000000">=</span> ContainedObject <span style="color: #2239a8; font-weight: bold">as</span> MyStrangeClassNeedsACustomContainer<span style="color: #000000">;</span>
+<span style="color: #2239a8; font-weight: bold"><span lang="fr">		</span>return new</span> <span style="color: #a8227b">ContainerForMyStrangeClass</span><span style="color: #000000">()</span> { AnInteger = int.Parse(sourceInstance.ATextBox.Text) }<span style="color: #000000">;</span>
+<span style="color: #000000"><span lang="fr">	</span>}</span>
 
-<span style="color: #2239a8; font-weight: bold">public object</span> <span style="color: #a8227b">Deserialize</span><span style="color: #000000">()</span>
-<span style="color: #000000">{</span>
-<span style="color: #2239a8; font-weight: bold">return new</span> <span style="color: #a8227b">MyStrangeClassNeedsACustomContainer</span><span style="color: #000000">(</span><span style="color: #2239a8; font-weight: bold">this</span><span style="color: #000000">.</span>AnInteger<span style="color: #000000">);</span>
-<span style="color: #000000">}</span>
+<span style="color: #2239a8; font-weight: bold"><span lang="fr">	</span>public object</span> <span style="color: #a8227b">Deserialize</span><span style="color: #000000">()</span>
+<span style="color: #000000"><span lang="fr">	</span>{</span>
+<span style="color: #2239a8; font-weight: bold"><span lang="fr">		</span>return new</span> <span style="color: #a8227b">MyStrangeClassNeedsACustomContainer</span><span style="color: #000000">(</span><span style="color: #2239a8; font-weight: bold">this</span><span style="color: #000000">.</span>AnInteger<span style="color: #000000">);</span>
+<span style="color: #000000"><span lang="fr">	</span>}</span>
 
-<span style="color: #2239a8; font-weight: bold">public bool</span> <span style="color: #a8227b">IsValidType</span><span style="color: #000000">(</span>Type type<span style="color: #000000">)</span>
-<span style="color: #000000">{</span>
-<span style="color: #2239a8; font-weight: bold">return</span> Tools<span style="color: #000000">.</span><span style="color: #a8227b">TypeIs</span><span style="color: #000000">(</span>type<span style="color: #000000">,</span> <span style="color: #2239a8; font-weight: bold">typeof</span><span style="color: #000000">(</span>MyStrangeClassNeedsACustomContainer<span style="color: #000000">));</span>
-<span style="color: #000000">}</span>
+<span style="color: #2239a8; font-weight: bold"><span lang="fr">	</span>public bool</span> <span style="color: #a8227b">IsValidType</span><span style="color: #000000">(</span>Type type<span style="color: #000000">)</span>
+<span style="color: #000000"><span lang="fr">	</span>{</span>
+<span style="color: #2239a8; font-weight: bold"><span lang="fr">		</span>return</span> Tools<span style="color: #000000">.</span><span style="color: #a8227b">TypeIs</span><span style="color: #000000">(</span>type<span style="color: #000000">,</span> <span style="color: #2239a8; font-weight: bold">typeof</span><span style="color: #000000">(</span>MyStrangeClassNeedsACustomContainer<span style="color: #000000">));</span>
+<span style="color: #000000"><span lang="fr">	</span>}</span>
 
-<span style="color: #2239a8; font-weight: bold">public bool</span> ApplyEvenIfThereIsAValidConstructor
-<span style="color: #000000">{</span>
-<span style="color: #2239a8; font-weight: bold">get</span> { return false; }
-<span style="color: #000000">}</span>
+<span style="color: #2239a8; font-weight: bold"><span lang="fr">	</span>public bool</span> ApplyEvenIfThereIsAValidConstructor
+<span style="color: #000000"><span lang="fr">	</span>{</span>
+<span style="color: #2239a8; font-weight: bold"><span lang="fr">		</span>get</span> { return false; }
+<span style="color: #000000"><span lang="fr">	</span>}</span>
 
-<span style="color: #2239a8; font-weight: bold">public bool</span> ApplyToStructures
-<span style="color: #000000">{</span>
-<span style="color: #2239a8; font-weight: bold">get</span> { return false; }
-<span style="color: #000000">}</span>
+<span style="color: #2239a8; font-weight: bold"><span lang="fr">	</span>public bool</span> ApplyToStructures
+<span style="color: #000000"><span lang="fr">	</span>{</span>
+<span style="color: #2239a8; font-weight: bold"><span lang="fr">		</span>get</span> { return false; }
+<span style="color: #000000"><span lang="fr">	</span>}</span>
 <span style="color: #000000">}</span>
 </pre>
-<p>A detail: all methods behave as static methods (but are not), except <code>Deserialize()</code>.</p>
+<p class="remarque">A detail: all methods behave as static methods (although they are instance methods). <br>Except <code>Deserialize()</code>.</p>
+<p>Please note a container class can have two roles:</p>
+<ol>
+<li>As a container constructor.<br>This role comes from the interface <code>IContainerGenerator</code>.<br>One, and only one, instance of the container is instantiated for this role.<br>The serializer asks this instance if this type of container can encapsulate a value, by calling functions as <code>IsValidType(Type type)</code>.<br>If the answer is yes, the serializer commands the container to produce another instance that will contain the value.</li>
+<li>As an actual container.<br>This role comes from the interface <code>IContainer</code>.<br>Every instance of this container contains a representation if the original value.<br>The deserializer</li>
+</ol>
+<p class="remarque">ITypeContainer inherits both the two interfaces (and consequently the two roles too) :<br><code>public interface ITypeContainer : IContainerGenerator, IContainer { }</code></p>
+<p>&nbsp;</p>
 <p>Let&#39;s see them more in details:</p>
 <ul>
 <li>
-<pre lang="cs">
+<pre>
 <span style="color: #2239a8; font-weight: bold">public int</span> AnInteger
 </pre>
-It is not part of the <code>ITypeContainer</code> interface. Here we will store the information we will need later at deserialization.</li>
+It is not part of the <code>ITypeContainer</code> interface. In this example here we store the information we need later at deserialization.</li>
 <li>
-<pre lang="cs">
+<pre>
 ITypeContainer <span style="color: #a8227b">CreateNewContainer</span><span style="color: #000000">(</span><span style="color: #2239a8; font-weight: bold">object</span> ContainedObject<span style="color: #000000">)</span>
 </pre>
-Used during serialization. This is a kind of constructor for this container instance. The parameter will be the source class instance to serialize.</li>
+Called on serialization. This is a kind of constructor for this container instance. The parameter will be the source class instance to serialize.</li>
 <li>
-<pre lang="cs">
+<pre>
 <span style="color: #2239a8; font-weight: bold">object</span> <span style="color: #a8227b">Deserialize</span><span style="color: #000000">()</span>
 </pre>
-<p>Used during deserialization. The container instance will produce a new instance, a copy of the source instance, using our field <code>AnInteger</code>.</p>
+<p>Called on deserialization. The container instance will produce a new instance, a copy of the source instance, using our field <code>AnInteger</code>.</p>
 </li>
 <li>
-<pre lang="cs">
+<pre>
 <span style="color: #2239a8; font-weight: bold">bool</span> <span style="color: #a8227b">IsValidType</span><span style="color: #000000">(</span>Type type<span style="color: #000000">)</span>
 </pre>
-Used during serialization. Returns true is the type inherits from, or is, the source type. This is a filter. We can choose to accept inherited types or not, to accept several compatible types, etc..</li>
+Called on serialization. Returns true is the type can be contained in this container. This is a filter. We can choose to accept inherited types or not, to accept several compatible types, etc..</li>
 <li>
-<pre lang="cs">
+<pre>
 <span style="color: #2239a8; font-weight: bold">bool</span> ApplyEvenIfThereIsAValidConstructor
 </pre>
-Used during serialization. Returns true if this container applies to class types with a default (no-param) constructor. Can be useful to very general containers.</li>
+Called on serialization. Returns true if this container applies to class types with a default (no-param) constructor. Can be useful to very general containers.</li>
 <li>
-<pre lang="cs">
+<pre>
 <span style="color: #2239a8; font-weight: bold">bool</span> ApplyToStructures
 </pre>
-Used during serialization. Returns true if this container applies to structure types, and not only class types. Can be useful to very general containers.</li>
+Called on serialization. Returns true if this container applies to structure types, and not only class types. Can be useful to very general containers.</li>
 </ul>
 <p>Steps are:</p>
 <ol>
@@ -167,21 +177,21 @@ Used during serialization. Returns true if this container applies to structure t
 <li>The <em>de</em>serializer retrieves (deserializes) the container instance.</li>
 <li>The deserializer calls <code>Deserialize()</code> and obtains a copy of the source class instance. <code>Deserialize()</code> creates this copy using its field <code>AnInteger</code>.</li>
 </ol>
-<p>[ New on Version 3.14.5 ] We declare the CustomModifiers globally :</p>
-<pre lang="cs">
+<p>&nbsp;We declare the CustomModifiers globally :</p>
+<pre>
 <span style="color: #2239a8; font-weight: bold">public class</span> CustomContainerTestModifiers <span style="color: #000000">:</span> CustomModifiers
 <span style="color: #000000">{</span>
-<span style="color: #2239a8; font-weight: bold">public</span> <span style="color: #a8227b">CustomContainerTestModifiers</span><span style="color: #000000">()</span>
-<span style="color: #000000">:</span> <span style="color: #2239a8; font-weight: bold">base</span><span style="color: #000000">(</span>Containers<span style="color: #000000">:</span> <span style="color: #2239a8; font-weight: bold">new</span> ITypeContainer<span style="color: #000000">[] {</span>
-<span style="color: #2239a8; font-weight: bold">new</span> <span style="color: #a8227b">ContainerForMyStrangeClass</span><span style="color: #000000">()</span> <span style="color: #558817">// ?-----</span>
-<span style="color: #000000">})</span>
-<span style="color: #000000">{</span>
-<span style="color: #000000">}</span>
+<span style="color: #2239a8; font-weight: bold"><span lang="fr">	</span>public</span> <span style="color: #a8227b">CustomContainerTestModifiers</span><span style="color: #000000">()</span>
+<span style="color: #000000"><span lang="fr">		</span>:</span> <span style="color: #2239a8; font-weight: bold">base</span><span style="color: #000000">(</span>Containers<span style="color: #000000">:</span> <span style="color: #2239a8; font-weight: bold">new</span> ITypeContainer<span style="color: #000000">[] {</span>
+<span style="color: #2239a8; font-weight: bold"><span lang="fr">			</span>new</span> <span style="color: #a8227b">ContainerForMyStrangeClass</span><span style="color: #000000">()</span> <span style="color: #558817">// <span lang="fr">The constructor role instance.</span></span>
+<span style="color: #000000"><span lang="fr">		</span>})</span>
+<span style="color: #000000"><span lang="fr">	</span>{</span>
+<span style="color: #000000"><span lang="fr">	</span>}</span>
 <span style="color: #000000">}</span>
 </pre>
-<p>This declaration will automatically be found by the deserializer. [ New in version 3.14.5 ]</p>
-<p>Now we serialize it: [ Simplified on version 3.14.5 ]</p>
-<pre lang="cs">
+<p>This declaration will automatically be found by the deserializer.</p>
+<p>Now we serialize it:</p>
+<pre>
 <span style="color: #558817">/* This example needs a custom ITypeContainer.</span>
 <span style="color: #558817">Normally, this class can not be serialized (see details in its source).</span>
 <span style="color: #558817">But thanks to this container, we can serialize the class as a small data (an integer).</span>
@@ -191,37 +201,35 @@ Used during serialization. Returns true if this container applies to structure t
 
 <span style="color: #2239a8; font-weight: bold">using</span> <span style="color: #000000">(</span>MemoryStream ms <span style="color: #000000">=</span> <span style="color: #2239a8; font-weight: bold">new</span> <span style="color: #a8227b">MemoryStream</span><span style="color: #000000">())</span>
 <span style="color: #000000">{</span>
-<span style="color: #2239a8; font-weight: bold">var</span> p <span style="color: #000000">=</span> <span style="color: #2239a8; font-weight: bold">new</span> <span style="color: #a8227b">Parameters</span><span style="color: #000000">()</span> { Stream = ms }<span style="color: #000000">;</span>
-UniversalSerializer ser <span style="color: #000000">=</span> <span style="color: #2239a8; font-weight: bold">new</span> <span style="color: #a8227b">UniversalSerializer</span><span style="color: #000000">(</span>p<span style="color: #000000">);</span>
+<span lang="fr">	</span>UniversalSerializer ser <span style="color: #000000">=</span> <span style="color: #2239a8; font-weight: bold">new</span> <span style="color: #a8227b">UniversalSerializer</span><span style="color: #000000">(<span lang="fr">ms</span>);</span>
 
-ser<span style="color: #000000">.</span><span style="color: #a8227b">Serialize</span><span style="color: #000000">(</span>data<span style="color: #000000">);</span>
-<span style="color: #2239a8; font-weight: bold">var</span> data2 <span style="color: #000000">=</span> ser<span style="color: #000000">.</span>Deserialize<span style="color: #000000">&lt;</span>MyStrangeClassNeedsACustomContainer<span style="color: #000000">&gt;();</span>
+<span lang="fr">	</span>ser<span style="color: #000000">.</span><span style="color: #a8227b">Serialize</span><span style="color: #000000">(</span>data<span style="color: #000000">);</span>
+<span style="color: #2239a8; font-weight: bold"><span lang="fr">	</span>var</span> data2 <span style="color: #000000">=</span> ser<span style="color: #000000">.</span>Deserialize<span style="color: #000000">&lt;</span>MyStrangeClassNeedsACustomContainer<span style="color: #000000">&gt;();</span>
 
-<span style="color: #2239a8; font-weight: bold">bool</span> ok <span style="color: #000000">=</span> data2<span style="color: #000000">.</span>ATextBox<span style="color: #000000">.</span>Text <span style="color: #000000">==</span> <span style="color: #a8660d">&quot;123&quot;</span><span style="color: #000000">;</span>
+<span style="color: #2239a8; font-weight: bold"><span lang="fr">	</span>bool</span> ok <span style="color: #000000">=</span> data2<span style="color: #000000">.</span>ATextBox<span style="color: #000000">.</span>Text <span style="color: #000000">==</span> <span style="color: #a8660d">&quot;123&quot;</span><span style="color: #000000">;</span>
 <span style="color: #000000">}</span>
 </pre>
+<p class="remarque">The right container is automatically found by UniversalSerializer, thanks to the global declaration.</p>
 <p>As you can see, the implementation is very easy.</p>
 <h2><a id="mozTocId883671"></a>Tool help functions</h2>
-<p>The Tools static class offers some help:</p>
+<p>The static class <code>Tools</code> offers some help:</p>
 <ul>
 <li>
-<pre lang="cs">
+<pre>
 Type Tools<span style="color: #000000">.</span><span style="color: #a8227b">TypeIs</span><span style="color: #000000">(</span>Type ObjectType<span style="color: #000000">,</span> Type SearchedType<span style="color: #000000">)</span>
 </pre>
-It is equivalent to the C#&#39;s &#39;<code>is</code>&#39;, but for Types.<br>For example, <code>TypeIs((typeof(List&lt;int&gt;)</code>, <code>typeof(List&lt;&gt;))</code> returns <code>true</code>.<br></li>
+It is equivalent to the C#&#39;s &#39;<code>is</code>&#39;, but for Types.<br>For example, <code>TypeIs((typeof(List&lt;int&gt;), typeof(List&lt;&gt;))</code> returns <code>true</code>.<br></li>
 <li>
-<pre lang="cs">
-Type <span style="color: #a8227b">DerivedType</span><span style="color: #000000">(</span>Type ObjectType<span style="color: #000000">,</span> Type SearchedType<span style="color: #000000">)</span>
+<pre>
+Type <span style="color: #a8227b">Tools<span style="color: #000000">.</span>DerivedType</span><span style="color: #000000">(</span>Type ObjectType<span style="color: #000000">,</span> Type SearchedType<span style="color: #000000">)</span>
 </pre>
-<p>Returns the type corresponding to <code>SearchedType</code> that is inherited by <code>ObjectType</code>.<br>For example, <code>DerivedType(typeof(MyList), typeof(List&lt;&gt;))</code> returns <code>typeof(List&lt;int&gt;)</code> when <code>MyList</code> is</p>
-<pre lang="cs">
+<p>Returns the type corresponding to <code>SearchedType</code> that is inherited by <code>ObjectType</code>.<br>For example, <code>DerivedType(typeof(MyList), typeof(List&lt;&gt;))</code> returns <code>typeof(List&lt;int&gt;)</code> when <code>MyList</code> is<br><code>
 <span style="color: #a89222; font-weight: bold">MyList</span><span style="color: #000000">:</span> List<span style="color: #000000">&lt;</span><span style="color: #2239a8; font-weight: bold">int</span><span style="color: #000000">&gt;</span> { }
-</pre>
-<p lang="cs">&nbsp;</p>
+</code></p>
 </li>
 <li>
-<pre lang="cs">
-FieldInfo <span style="color: #a8227b">FieldInfoFromName</span><span style="color: #000000">(</span>Type t<span style="color: #000000">,</span> <span style="color: #2239a8; font-weight: bold">string</span> name<span style="color: #000000">)</span>
+<pre>
+FieldInfo <span style="color: #a8227b">Tools<span style="color: #000000">.</span>FieldInfoFromName</span><span style="color: #000000">(</span>Type t<span style="color: #000000">,</span> <span style="color: #2239a8; font-weight: bold">string</span> name<span style="color: #000000">)</span>
 </pre>
 Returns the <code>FieldInfo</code> of the named field of the type. </li>
 </ul>
@@ -233,6 +241,7 @@ Returns the <code>FieldInfo</code> of the named field of the type. </li>
 <li><a href="../download.html">Download</a></li>
 <li><a href="index.html">Documentation</a></li>
 <li><a href="history.html">Versions</a></li>
+<li><a href="../donate.html">Donate</a></li>
 </ul>
 </div>
 </div>

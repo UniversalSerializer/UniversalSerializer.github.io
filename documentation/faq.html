@@ -6,7 +6,7 @@
 <meta content="en" http-equiv="content-language" />
 <meta content="Christophe Bertrand" name="author" />
 <meta name="viewport" content="width=device-width" />
-<title>UniversalSerializer - Attributes</title>
+<title>UniversalSerializer - Frequently Asked Questions</title>
 <link href="../styles/style2.css" media="screen" rel="stylesheet" title="CSS" type="text/css" />
 <link href="../favicon.png" rel="icon" type="image/png" />
 <link href="../favicon.ico" rel="shortcut icon" type="image/x-icon" />
@@ -57,63 +57,47 @@
 </div>
 </div>
 </div>
-<h1>Attributes</h1>
-<p>
-UniversalSerializer normally does not need attributes, unlike BinaryFormatter or SoapFormatter for example.<br>
-Nevertheless, it can take some attributes into account, at your will.<br>
-</p>
+<h1>Frequently Asked Questions</h1>
+<p>Click on the question to open its answer.</p>
 
-<table style="text-align: left; width: 98%;">
-<tbody>
-<tr class="table_header">
-<th style="vertical-align: top;">Attribute<br>
-</th>
-<th style="vertical-align: top;">Usage<br>
-</th>
-</tr>
-<tr>
-<td style="vertical-align: top;">UniversalSerializerLib3.<br><strong>ForceSerializeAttribute</strong></td>
-<td style="vertical-align: top;">Orders UniversalSerializer to serialize this field or property, not taking into account other attributes.</td>
-</tr>
-<tr>
-<td style="vertical-align: top;">UniversalSerializerLib3.<br><strong>ForceNotSerializeAttribute</strong></td>
-<td style="vertical-align: top;">Orders UniversalSerializer to never serialize this field or property, not taking into account other attributes.</td>
-</tr>
-<tr>
-<td style="vertical-align: top;">System.<br><strong>NonSerializedAttribute</strong><br>
-</td>
-<td style="vertical-align: top;">Orders the serializer to not serialize a field.<br>
-Comes from BinaryFormatter.<br>
-Can not be applied to a property.<br>
-</td>
-</tr>
-<tr>
-<td style="vertical-align: top;">System.<br>Xml.<br>Serialization.<br><strong>XmlIgnoreAttribute</strong><br>
-</td>
-<td style="vertical-align: top;">Orders the serializer to not serialize a field or a property.<br>
+<details>
+<summary>Where are the libraries (DLL) ?</summary>
+<p>In the source code archive, they are in this directory <code>\Source\DLL\</code>.<br>Every platform has its own project.<br>For example:<br><code>Source\DLL\NET 4.5\UniversalSerializer for .NET 4.5\UniversalSerializer 3 for NET 4_5.csproj</code></p>
+<p>Alternatively, You can compile all libraries at once:</p>
+<ol>
+<li>Install Visual Studio 2017 or later, Xamarin, Xamarin Forms, the Android SDK, and the UWP framework.<br>You may consider installing the Android Studio first, and the API 27.</li>
+<li>Extract the source code archive of UniversalSerializer.</li>
+<li>Open this solution:<br><code>Source\DLL\All DLLs as Release\All DLLs as Release.sln</code></li>
+<li>Run the solution (the default project is "Copy DLL files").</li>
+<li>All the libraries will be built and copied to this directory:<br><code>Source\DLL\All DLLs as Release\DLLs</code></li>
+</ol>
+</details>
 
-Comes from XmlSerializer.
-</td>
-</tr>
-    
-<tr>
-<td style="vertical-align: top;">System.<br>ComponentModel.<br><strong>EditorBrowsableAttribute</strong><br>
-</td>
-<td style="vertical-align: top;">Normally, orders the IDE to not present the element (field, property, class, etc).<br>
-UniversalSerializer interpret<span>s</span> it differently and does not serialize the field or property.<br>
-</td>
-</tr>
-    
-</tbody>
-</table>
-<p><br>
-</p>
+<details>
+<summary>Is UniversalSerializer thread-safe ? Can it run on parallel threads ?</summary>
+<p>UniversalSerializer is thread-safe, but it is not concurrent.<br>You can serialize from different threads, but the serialization will not operate simultaneously.</p>
+</details>
 
-<p><br>
-</p>
-<p><br>
-</p>
-	
+<details>
+<summary>Is there a PCL (Portable Class Library) serializer ?</summary>
+<p>No. It seems Microsoft abandoned the PCL in favor to the UWP (Universal Windows) and to the .NET Standard.<br>Anyway, programming a PCL was painful, so I removed it.</p>
+</details>
+
+<details>
+<summary>Can I serialize to json on UWP ?</summary>
+<p>No, the json format is not available on UWP.<br>I may implement it someday. But it is not a trivial job.</p>
+</details>
+
+<details>
+<summary>Who wrote UniversalSerializer ?</summary>
+<p>My name is Christophe Bertrand. You will find more information <a href="http://universalserializer.com/author.html">here</a>.</p>
+</details>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><br></p>
+
+
 </div>
 <div id="footer" role="navigation">
 <ul>
