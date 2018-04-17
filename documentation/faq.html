@@ -79,6 +79,13 @@
 </details>
 
 <details>
+<summary>How can I send you an Issue?</summary>
+<p>In case of a problem, please <a href="https://github.com/ChrisBertrandDotNet/UniversalSerializer/issues">create an issue on GitHub</a>.</p>
+<p>You can give me a short example of code I can compile and test by myself.</p>
+<p>Please ensure your problem is not in this Faq and has not already an issue on GitHub.</p>
+</details>
+
+<details>
 <summary>Is there a PCL (Portable Class Library) serializer ?</summary>
 <p>No. It seems Microsoft abandoned the PCL in favor to the UWP (Universal Windows) and to the .NET Standard.<br>Anyway, programming a PCL was painful, so I removed it.</p>
 </details>
@@ -86,6 +93,28 @@
 <details>
 <summary>Can I serialize to json on UWP ?</summary>
 <p>No, the json format is not available on UWP.<br>I may implement it someday. But it is not a trivial job.</p>
+</details>
+
+<details>
+<summary>What does UniversalSerializer when the version of a serialized type has changed ?</summary>
+<p>When UniversalSerializer deserializes a type, it takes into account its version at the moment of the serialization.<br>If the version are different, UniversalSerializer will not recognize the type, then the deserialization will fail.</p>
+<p>The reason is the declaration of the type may have changed on the new version:</p>
+<ul>
+<li>Some fields/properties may have been added, removed or renamed.</li>
+<li>The semantic of the fields/properties may have changed, even if their declaration did not.</li>
+<li>Some constructors may have been added or removed.</li>
+</ul>
+The solution is not easy:<br>
+<ol>
+<li>The type author (<i>you</i> for example) would have to add attributes that explain the changes:
+<ul>
+<li>&nbsp;When a member (field or property) has been renamed.<br>The attributes gives the old name.<br></li>
+<li>If the type of a member has been changed (for example Int32 to Double), then the author should add an attribute that gives a conversion function.<br>The conversion from an Int32 to a Double can be trivial and implicit. But transcoding from an author type to another type needs such a function since the serializer can not guess how to do that.<br>Another solution is to add an implicit converter to the type itself: "implicit operator" in C#.</li>
+</ul>
+</li>
+<li>Then the serializer would use these attributes in order to transcode (convert) an old value to a new version of its type.<br></li>
+</ol>
+<p>That is a lot of work, because I need to change the file format in deep, which in turn makes me change a good part of my source code.<br>Don't forget that is a spare-time project, not a commercial product.<br></p>
 </details>
 
 <details>
