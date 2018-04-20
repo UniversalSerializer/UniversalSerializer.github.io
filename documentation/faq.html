@@ -1,12 +1,16 @@
 <!DOCTYPE HTML>
 <html dir="ltr" lang="en">
 
+
+
 <head>
 <meta content="text/html; charset=utf-8" http-equiv="content-type" />
 <meta content="en" http-equiv="content-language" />
 <meta content="Christophe Bertrand" name="author" />
 <meta name="viewport" content="width=device-width" />
+
 <title>UniversalSerializer - Frequently Asked Questions</title>
+
 <link href="../styles/style2.css" media="screen" rel="stylesheet" title="CSS" type="text/css" />
 <link href="../favicon.png" rel="icon" type="image/png" />
 <link href="../favicon.ico" rel="shortcut icon" type="image/x-icon" />
@@ -14,140 +18,155 @@
 
 <body>
 
+
 <div id="container">
-<div id="masthead" role="banner">
-<div id="logo_ext">
-<img id="logo" alt="" height="66" src="../images/logo.png" width="150" /></div>
-<div id="md">
-<div id="nh">
-<ul>
-<li><a href="contact.html">Contact</a></li>
-<li><a href="../author.html">The author</a></li>
-</ul>
-</div>
-<div class="navigation" role="navigation">
-<ul>
-<li><a href="../index.html">UniversalSerializer</a></li>
-<li><a href="../download.html">Download</a></li>
-<li><a href="index.html">Documentation</a></li>
-<li><a href="history.html">Versions</a></li>
-<li><a href="../donate.html">Donate</a></li>
-</ul>
-</div>
-</div>
-</div>
-<div id="page_content" role="main">
-<div class="navigation"  style="width: 100%; margin: 0 auto;">
-<div style="float: left; width: 2%;transform: rotate(270deg); transform-origin: 160% 160%;font-size:large">DOCU</div>
-<div style="background-color: #408080; float: right; width: 98%;">
-<div role="navigation">
-<ul>
-<li><a href="index.html">Presentation</a></li>
-<li><a href="examples.html">Examples</a></li>
-<li><a href="solutions_and_projects.html">Solutions (DLLs)</a></li>
-<li><a href="good_practices.html">Good practices</a></li>
-<li><a href="attributes.html">Attributes</a></li>
-<li><a href="containers.html">Containers</a></li>
-<li><a href="filters.html">Filters</a></li>
-<li><a href="errors.html">Errors on execution</a></li>
-<li><a href="license.html">License</a></li>
-<li><a href="history.html">History</a></li>
-<li><a href="faq.html">FAQ</a></li>
-</ul>
-</div>
-</div>
-</div>
-<h1>Frequently Asked Questions</h1>
-<p>Click on the question to open its answer.</p>
+	
+	<div id="masthead" role="banner">
+		<div id="logo_ext">
+			<img id="logo" alt="" height="66" src="../images/logo.png" width="150" /></div>
+		<div id="md">
+			<div id="nh">
+				<ul>
+					<li><a href="contact.html">Contact</a></li>
+					<li><a href="../author.html">The author</a></li>
+				</ul>
+			</div>
+			
+			<div class="navigation" role="navigation">
+				<ul>
+					<li><a href="../index.html">UniversalSerializer</a></li>
+					<li><a href="../download.html">Download</a></li>
+					<li><a href="index.html">Documentation</a></li>
+					<li><a href="history.html">Versions</a></li>
+					<li><a href="../donate.html">Donate</a></li>
+				</ul>
+			</div>
+			</div>
+	</div>
+	
+	
+	<div id="page_content" role="main">
+		
+		<div class="navigation"  style="width: 100%; margin: 0 auto;">
+			<div style="float: left; width: 2%;transform: rotate(270deg); transform-origin: 160% 160%;font-size:large">DOCU</div>
+			<div style="background-color: #408080; float: right; width: 98%;">
+				<div role="navigation">
+					<ul>
+						<li><a href="index.html">Presentation</a></li>
+						<li><a href="examples.html">Examples</a></li>
+						<li><a href="solutions_and_projects.html">Solutions (DLLs)</a></li>
+						<li><a href="good_practices.html">Good practices</a></li>
+						<li><a href="attributes.html">Attributes</a></li>
+						<li><a href="containers.html">Containers</a></li>
+						<li><a href="filters.html">Filters</a></li>
+						<li><a href="errors.html">Errors on execution</a></li>
+						<li><a href="license.html">License</a></li>
+						<li><a href="history.html">History</a></li>
+						<li><a href="faq.html">FAQ</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+	<h1>Frequently Asked Questions</h1>
+	<p>Click on the question to open its answer.</p>
 
 <details>
-<summary>Where are the libraries (DLL) ?</summary>
-<p>In the source code archive, they are in this directory <code>\Source\DLL\</code>.<br>Every platform has its own project.<br>For example:<br><code>Source\DLL\NET 4.5\UniversalSerializer for .NET 4.5\UniversalSerializer 3 for NET 4_5.csproj</code></p>
-<p>Alternatively, You can compile all libraries at once:</p>
-<ol>
-<li>Install Visual Studio 2017 or later, Xamarin, Xamarin Forms, the Android SDK, and the UWP framework.<br>You may consider installing the Android Studio first, and the API 27.</li>
-<li>Extract the source code archive of UniversalSerializer.</li>
-<li>Open this solution:<br><code>Source\DLL\All DLLs as Release\All DLLs as Release.sln</code></li>
-<li>Run the solution (the default project is "Copy DLL files").</li>
-<li>All the libraries will be built and copied to this directory:<br><code>Source\DLL\All DLLs as Release\DLLs</code></li>
-</ol>
+ <summary>Where are the libraries (DLL) ?</summary>
+ <p>In the source code archive, they are in this directory <code>\Source\DLL\</code>.<br>Every platform has its own project.<br>For example:<br><code>Source\DLL\NET 4.5\UniversalSerializer for .NET 4.5\UniversalSerializer 3 for NET 4_5.csproj</code></p>
+ <p>Alternatively, You can compile all libraries at once:</p>
+	<ol>
+		<li>Install Visual Studio 2017 or later, Xamarin, Xamarin Forms, the Android SDK, and the UWP framework.<br>You may consider installing the Android Studio first, and the API 27.</li>
+		<li>Extract the source code archive of UniversalSerializer.</li>
+		<li>Open this solution:<br><code>Source\DLL\All DLLs as Release\All DLLs as Release.sln</code></li>
+		<li>Run the solution (the default project is "Copy DLL files").</li>
+		<li>All the libraries will be built and copied to this directory:<br><code>Source\DLL\All DLLs as Release\DLLs</code></li>
+	</ol>
 </details>
 
 <details>
-<summary>Is UniversalSerializer thread-safe ? Can it run on parallel threads ?</summary>
-<p>UniversalSerializer is thread-safe, but it is not concurrent.<br>You can serialize from different threads, but the serialization will not operate simultaneously.</p>
+ <summary>Is UniversalSerializer thread-safe ? Can it run on parallel threads ?</summary>
+ <p>UniversalSerializer is thread-safe, but it is not concurrent.<br>You can serialize from different threads, but the serialization will not operate simultaneously.</p>
 </details>
 
 <details>
-<summary>How can I send you an Issue?</summary>
-<p>In case of a problem, please <a href="https://github.com/ChrisBertrandDotNet/UniversalSerializer/issues">create an issue on GitHub</a>.</p>
-<p>You can give me a short example of code I can compile and test by myself.</p>
-<p>Please ensure your problem is not in this Faq and has not already an issue on GitHub.</p>
+ <summary>How can I send you an Issue?</summary>
+ <p>In case of a problem, please <a href="https://github.com/ChrisBertrandDotNet/UniversalSerializer/issues">create an issue on GitHub</a>.</p>
+	<p>You can give me a short example of code I can compile and test by myself.</p>
+	<p>Please ensure your problem is not in this Faq and has not already an issue on GitHub.</p>
 </details>
 
 <details>
-<summary>Is there a PCL (Portable Class Library) serializer ?</summary>
-<p>No. It seems Microsoft abandoned the PCL in favor to the UWP (Universal Windows) and to the .NET Standard.<br>Anyway, programming a PCL was painful, so I removed it.</p>
+ <summary>Is there a PCL (Portable Class Library) serializer ?</summary>
+ <p>No. It seems Microsoft abandoned the PCL in favor to the UWP (Universal Windows) and to the .NET Standard.<br>Anyway, programming a PCL was painful, so I removed it.</p>
 </details>
 
 <details>
-<summary>Can I serialize to json on UWP ?</summary>
-<p>No, the json format is not available on UWP.<br>I may implement it someday. But it is not a trivial job.</p>
+ <summary>Can I serialize to json on UWP ?</summary>
+ <p>No, the json format is not available on UWP.<br>I may implement it someday. But it is not a trivial job.</p>
 </details>
 
 <details>
-<summary>What does UniversalSerializer when the version of a serialized type has changed ?</summary>
-<p>When UniversalSerializer deserializes a type, it takes into account its version at the moment of the serialization.<br>If the version are different, UniversalSerializer will not recognize the type, then the deserialization will fail.</p>
-<p>The reason is the declaration of the type may have changed on the new version:</p>
-<ul>
-<li>Some fields/properties may have been added, removed or renamed.</li>
-<li>The semantic of the fields/properties may have changed, even if their declaration did not.</li>
-<li>Some constructors may have been added or removed.</li>
-</ul>
-The solution is not easy:<br>
-<ol>
-<li>The type author (<i>you</i> for example) would have to add attributes that explain the changes:
-<ul>
-<li>&nbsp;When a member (field or property) has been renamed.<br>The attributes gives the old name.<br></li>
-<li>If the type of a member has been changed (for example Int32 to Double), then the author should add an attribute that gives a conversion function.<br>The conversion from an Int32 to a Double can be trivial and implicit. But transcoding from an author type to another type needs such a function since the serializer can not guess how to do that.<br>Another solution is to add an implicit converter to the type itself: "implicit operator" in C#.</li>
-</ul>
-</li>
-<li>Then the serializer would use these attributes in order to transcode (convert) an old value to a new version of its type.<br></li>
-</ol>
-<p>That is a lot of work, because I need to change the file format in deep, which in turn makes me change a good part of my source code.<br>Don't forget that is a spare-time project, not a commercial product.<br></p>
+ <summary>What does UniversalSerializer when the version of a serialized type has changed ?</summary>
+ <p>When UniversalSerializer deserializes a type, it takes into account its version at the moment of the serialization.<br>If the version are different, UniversalSerializer will not recognize the type, then the deserialization will fail.</p>
+	<p>The reason is the declaration of the type may have changed on the new version:</p>
+	<ul>
+		<li>Some fields/properties may have been added, removed or renamed.</li>
+		<li>The semantic of the fields/properties may have changed, even if their declaration did not.</li>
+		<li>Some constructors may have been added or removed.</li>
+	</ul>
+	The solution is not easy:<br>
+	<ol>
+		<li>The type author (<i>you</i> for example) would have to add attributes that explain the changes:
+		<ul>
+			<li>&nbsp;When a member (field or property) has been renamed.<br>The attributes gives the old name.<br></li>
+			<li>If the type of a member has been changed (for example Int32 to Double), then the author should add an attribute that gives a conversion function.<br>The conversion from an Int32 to a Double can be trivial and implicit. But transcoding from an author type to another type needs such a function since the serializer can not guess how to do that.<br>Another solution is to add an implicit converter to the type itself: "implicit operator" in C#.</li>
+		</ul>
+		</li>
+		<li>Then the serializer would use these attributes in order to transcode (convert) an old value to a new version of its type.<br></li>
+	</ol>
+	<p>That is a lot of work, because I need to change the file format in deep, which in turn makes me change a good part of my source code.<br>Don't forget that is a spare-time project, not a commercial product.<br></p>
 </details>
 
 <details>
-<summary>What can I do if a third-party (or framework) type does not serialize ?</summary>
-<p>You can create a <a href="containers.html">Container</a>.</p>
-<p>A container is a class or structure you create that will be serialized in place of another type (structure or class) that would not serialize or would be problematic (not efficient, missing fields, etc.).</p>
-<p>If you write a container for a common type, please share it.<br>I will be more than happy to include it in the serializer.</p>
+ <summary>What can I do if a third-party (or framework) type does not serialize ?</summary>
+ <p>You can create a <a href="containers.html">Container</a>.</p>
+	<p>A container is a class or structure you create that will be serialized in place of another type (structure or class) that would not serialize or would be problematic (not efficient, missing fields, etc.).</p>
+	<p>If you write a container for a common type, please share it.<br>I will be more than happy to include it in the serializer.</p>
 </details>
 
 <details>
-<summary>Who wrote UniversalSerializer ?</summary>
-<p>My name is Christophe Bertrand. You will find more information <a href="http://universalserializer.com/author.html">here</a>.</p>
+ <summary>Who wrote UniversalSerializer ?</summary>
+ <p>My name is Christophe Bertrand. You will find more information <a href="http://universalserializer.com/author.html">here</a>.</p>
 </details>
 
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p><br></p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p><br></p>
 
 
-</div>
-<div id="footer" role="navigation">
-<ul>
-<li><a href="../index.html">UniversalSerializer</a></li>
-<li><a href="../download.html">Download</a></li>
-<li><a href="index.html">Documentation</a></li>
-<li><a href="history.html">Versions</a></li>
-<li><a href="../donate.html">Donate</a></li>
-</ul>
-</div>
-</div>
+		
+
+	</div>
+	
+	
+	<div id="footer" role="navigation">
+		<ul>
+			<li><a href="../index.html">UniversalSerializer</a></li>
+			<li><a href="../download.html">Download</a></li>
+			<li><a href="index.html">Documentation</a></li>
+			<li><a href="history.html">Versions</a></li>
+			<li><a href="../donate.html">Donate</a></li>
+		</ul>
+	</div>
+	</div>
 <div id="footer2">
-<p>Copyright &copy; Christophe Bertrand. All rights reserved.</p>
+	<p>Copyright &copy; Christophe Bertrand. All rights reserved.</p>
 </div>
+
+
 </body>
+
+
 
 </html>

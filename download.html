@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 
+
+
 <head>
 <meta content="text/html; charset=utf-8" http-equiv="content-type" />
 <meta content="en" http-equiv="content-language" />
 <meta content="Christophe Bertrand" name="author" />
 <meta name="viewport" content="width=device-width" />
+
 <title>UniversalSerializer - Download</title>
+
 <link href="styles/style2.css" media="screen" rel="stylesheet" title="CSS" type="text/css" />
 <link href="favicon.png" rel="icon" type="image/png" />
 <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
@@ -14,58 +18,84 @@
 
 <body>
 
+
 <div id="container">
-<div id="masthead" role="banner">
-<div id="logo_ext">
-<img id="logo" alt="" height="66" src="images/logo.png" width="150" /></div>
-<div id="md">
-<div id="nh">
-<ul>
-<li><a href="documentation/contact.html">Contact</a></li>
-<li><a href="author.html">The author</a></li>
-</ul>
-</div>
-<div class="navigation" role="navigation">
-<ul>
-<li><a href="index.html">UniversalSerializer</a></li>
-<li><a href="download.html">Download</a></li>
-<li><a href="documentation/index.html">Documentation</a></li>
-<li><a href="documentation/history.html">Versions</a></li>
-<li><a href="donate.html">Donate</a></li>
-</ul>
-</div>
-</div>
-</div>
-<div id="page_content" role="main">
-<h1>Download</h1>
-<h2>UniversalSerializer version 3.18.3.14</h2>
-<p>Version: 3.18.3.14<br>Date: 2018-03-30</p>
-<p>Source code as a <strong>Rar</strong> archive file:<br><a href="files/UniversalSerializer_3.18.3.14_E839F19AF67436EA0C4C5EF0FDB2647C2BCDF74D47DCB39592D58463DC86EA82.rar">UniversalSerializer_3.18.3.14_E839F19AF67436EA0C4C5EF0FDB2647C2BCDF74D47DCB39592D58463DC86EA82.rar</a><br>Size: 510 kb.<br>SHA-256 of Rar: E839F19AF67436EA0C4C5EF0FDB2647C2BCDF74D47DCB39592D58463DC86EA82</p>
-<p>Source code as a <strong>Zip</strong> archive file: <br><a href="files/UniversalSerializer_3.18.3.14_6B1E085392256A5A38FD0229FFA13F032E67A4BDECF68223BE9880D385F0110D.zip">UniversalSerializer_3.18.3.14_6B1E085392256A5A38FD0229FFA13F032E67A4BDECF68223BE9880D385F0110D.zip</a><br />
-Size: 810 kb.<br>SHA-256 of Zip: 6B1E085392256A5A38FD0229FFA13F032E67A4BDECF68223BE9880D385F0110D</p>
-<p>&nbsp;</p>
-<p class="remarque">Web authors: Please do not link to the files directly, link to this download page instead.</p>
-<div>
-<p>The release notes are on <a href="documentation/history.html">this page</a>.</p>
-<h2>Older versions</h2>
-<p>Older versions can be found on <a href="https://www.codeproject.com/Articles/620154/UniversalSerializer#mozTocId665544">CodeProject</a>.</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-</div>
-</div>
-<div id="footer" role="navigation">
-<ul>
-<li><a href="index.html">UniversalSerializer</a></li>
-<li><a href="download.html">Download</a></li>
-<li><a href="documentation/index.html">Documentation</a></li>
-<li><a href="documentation/history.html">Versions</a></li>
-<li><a href="donate.html">Donate</a></li>
-</ul>
-</div>
-</div>
+	
+	<div id="masthead" role="banner">
+		<div id="logo_ext">
+			<img id="logo" alt="" height="66" src="images/logo.png" width="150" /></div>
+		<div id="md">
+			<div id="nh">
+				<ul>
+					<li><a href="documentation/contact.html">Contact</a></li>
+					<li><a href="author.html">The author</a></li>
+				</ul>
+			</div>
+			
+			<div class="navigation" role="navigation">
+				<ul>
+					<li><a href="index.html">UniversalSerializer</a></li>
+					<li><a href="download.html">Download</a></li>
+					<li><a href="documentation/index.html">Documentation</a></li>
+					<li><a href="documentation/history.html">Versions</a></li>
+					<li><a href="donate.html">Donate</a></li>
+				</ul>
+			</div>
+			</div>
+	</div>
+	
+	
+	<div id="page_content" role="main">
+		
+		<h1>Download</h1>
+		<h2>The compiled libraries</h2>
+		Three NuGet packages are available that contain the compiled DLLs:<ul>
+			<li><a href="https://www.nuget.org/packages/UniversalSerializer/"><strong>UniversalSerializer</strong></a><br>The main package, containing the 8 main libraries.</li>
+			<li><a href="https://www.nuget.org/packages/UniversalSerializer.WPF/"><strong>UniversalSerializer.WPF</strong></a><br>The specific library for the WPF types.<br>This package depends on the main package.</li>
+			<li><a href="https://www.nuget.org/packages/UniversalSerializer.Windows.Forms/"><strong>UniversalSerializer.Windows.Forms</strong></a><br>The specific library for the Windows Forms types.<br>For versionning reasons, it includes the right main UniversalSerializer library. Therfore this package does not depend on the main package.</li>
+		</ul>
+		<h2>The source code</h2>
+		<p>The source code archive lets you compile the serializer yourself, and make adaptations when needed.</p>
+		<p>In addition to the NuGet packages, the source code archive contains:</p>
+		<ul>
+			<li>Some examples.</li>
+			<li>The benchmark.</li>
+			<li>All libraries in one archive.<br>While the compiled libraries are distributed via 3 NuGet packages.</li>
+		</ul>
+		<h3>UniversalSerializer version 3.18.3.14</h3>
+		<p>Version: 3.18.3.14<br>Date: 2018-03-30</p>
+		<p>Source code as a <strong>Rar</strong> archive file:<br><a href="files/UniversalSerializer_3.18.3.14_E839F19AF67436EA0C4C5EF0FDB2647C2BCDF74D47DCB39592D58463DC86EA82.rar">UniversalSerializer_3.18.3.14_E839F19AF67436EA0C4C5EF0FDB2647C2BCDF74D47DCB39592D58463DC86EA82.rar</a><br>Size: 510 kb.<br>SHA-256 of Rar: E839F19AF67436EA0C4C5EF0FDB2647C2BCDF74D47DCB39592D58463DC86EA82</p>
+		<p>Source code as a <strong>Zip</strong> archive file: <br><a href="files/UniversalSerializer_3.18.3.14_6B1E085392256A5A38FD0229FFA13F032E67A4BDECF68223BE9880D385F0110D.zip">UniversalSerializer_3.18.3.14_6B1E085392256A5A38FD0229FFA13F032E67A4BDECF68223BE9880D385F0110D.zip</a><br />
+		Size: 810 kb.<br>SHA-256 of Zip: 6B1E085392256A5A38FD0229FFA13F032E67A4BDECF68223BE9880D385F0110D</p>
+		<p>&nbsp;</p>
+		<p class="remarque">Web authors: Please do not link to the files directly, link to this download page instead.</p>
+		<div>
+			<p>The release notes are on <a href="documentation/history.html">this page</a>.</p>
+			<h3>Older versions</h3>
+			<p>Older versions can be found on <a href="https://www.codeproject.com/Articles/620154/UniversalSerializer#mozTocId665544">CodeProject</a>.</p>
+			<p>&nbsp;</p>
+			<p>&nbsp;</p>
+		</div>
+		</div>
+	
+	
+	<div id="footer" role="navigation">
+		<ul>
+			<li><a href="index.html">UniversalSerializer</a></li>
+			<li><a href="download.html">Download</a></li>
+			<li><a href="documentation/index.html">Documentation</a></li>
+			<li><a href="documentation/history.html">Versions</a></li>
+			<li><a href="donate.html">Donate</a></li>
+		</ul>
+	</div>
+	</div>
 <div id="footer2">
-<p>Copyright &copy; Christophe Bertrand. All rights reserved.</p>
+	<p>Copyright &copy; Christophe Bertrand. All rights reserved.</p>
 </div>
+
+
 </body>
+
+
 
 </html>

@@ -1,12 +1,16 @@
 <!DOCTYPE HTML>
 <html dir="ltr" lang="en">
 
+
+
 <head>
 <meta content="text/html; charset=utf-8" http-equiv="content-type" />
 <meta content="en" http-equiv="content-language" />
 <meta content="Christophe Bertrand" name="author" />
 <meta name="viewport" content="width=device-width" />
+
 <title>UniversalSerializer - Containers</title>
+
 <link href="../styles/style2.css" media="screen" rel="stylesheet" title="CSS" type="text/css" />
 <link href="../favicon.png" rel="icon" type="image/png" />
 <link href="../favicon.ico" rel="shortcut icon" type="image/x-icon" />
@@ -14,55 +18,62 @@
 
 <body>
 
+
 <div id="container">
-<div id="masthead" role="banner">
-<div id="logo_ext">
-<img id="logo" alt="" height="66" src="../images/logo.png" width="150" /></div>
-<div id="md">
-<div id="nh">
-<ul>
-<li><a href="contact.html">Contact</a></li>
-<li><a href="../author.html">The author</a></li>
-</ul>
-</div>
-<div class="navigation" role="navigation">
-<ul>
-<li><a href="../index.html">UniversalSerializer</a></li>
-<li><a href="../download.html">Download</a></li>
-<li><a href="index.html">Documentation</a></li>
-<li><a href="history.html">Versions</a></li>
-<li><a href="../donate.html">Donate</a></li>
-</ul>
-</div>
-</div>
-</div>
-<div id="page_content" role="main">
-<div class="navigation"  style="width: 100%; margin: 0 auto;">
-<div style="float: left; width: 2%;transform: rotate(270deg); transform-origin: 160% 160%;font-size:large">DOCU</div>
-<div style="background-color: #408080; float: right; width: 98%;">
-<div role="navigation">
-<ul>
-<li><a href="index.html">Presentation</a></li>
-<li><a href="examples.html">Examples</a></li>
-<li><a href="solutions_and_projects.html">Solutions (DLLs)</a></li>
-<li><a href="good_practices.html">Good practices</a></li>
-<li><a href="attributes.html">Attributes</a></li>
-<li><a href="containers.html">Containers</a></li>
-<li><a href="filters.html">Filters</a></li>
-<li><a href="errors.html">Errors on execution</a></li>
-<li><a href="license.html">License</a></li>
-<li><a href="history.html">History</a></li>
-<li><a href="faq.html">FAQ</a></li>
-</ul>
-</div>
-</div>
-</div>
+	
+	<div id="masthead" role="banner">
+		<div id="logo_ext">
+			<img id="logo" alt="" height="66" src="../images/logo.png" width="150" /></div>
+		<div id="md">
+			<div id="nh">
+				<ul>
+					<li><a href="contact.html">Contact</a></li>
+					<li><a href="../author.html">The author</a></li>
+				</ul>
+			</div>
+			
+			<div class="navigation" role="navigation">
+				<ul>
+					<li><a href="../index.html">UniversalSerializer</a></li>
+					<li><a href="../download.html">Download</a></li>
+					<li><a href="index.html">Documentation</a></li>
+					<li><a href="history.html">Versions</a></li>
+					<li><a href="../donate.html">Donate</a></li>
+				</ul>
+			</div>
+			</div>
+	</div>
+	
+	
+	<div id="page_content" role="main">
+		
+		<div class="navigation"  style="width: 100%; margin: 0 auto;">
+			<div style="float: left; width: 2%;transform: rotate(270deg); transform-origin: 160% 160%;font-size:large">DOCU</div>
+			<div style="background-color: #408080; float: right; width: 98%;">
+				<div role="navigation">
+					<ul>
+						<li><a href="index.html">Presentation</a></li>
+						<li><a href="examples.html">Examples</a></li>
+						<li><a href="solutions_and_projects.html">Solutions (DLLs)</a></li>
+						<li><a href="good_practices.html">Good practices</a></li>
+						<li><a href="attributes.html">Attributes</a></li>
+						<li><a href="containers.html">Containers</a></li>
+						<li><a href="filters.html">Filters</a></li>
+						<li><a href="errors.html">Errors on execution</a></li>
+						<li><a href="license.html">License</a></li>
+						<li><a href="history.html">History</a></li>
+						<li><a href="faq.html">FAQ</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
 <h1>Containers</h1>
 <div role="navigation">
 <ul id="mozToc">
 <li><a href="#mozTocId619784">Making a ITypeContainer</a></li>
 <li><a href="#mozTocId883671">Tool help functions</a></li>
-<li><a href="#share-your-containers">Please share your containers</a></li>
+	<li><a href="#share-your-containers">Please share your containers</a></li>
 </ul>
 </div>
 <p>A container is a class or structure you create that will be serialized in place of another type (structure or class) that would not serialize or would be problematic (not efficient, missing fields, etc.).<br>It inherits the interface <code>ITypeContainer</code>.</p>
@@ -129,13 +140,13 @@
 <span style="color: #000000">}</span>
 </pre>
 <p class="remarque">A detail: all methods behave as static methods (although they are instance methods). <br>Except <code>Deserialize()</code>.</p>
-<p>Please note a container class can have two roles:</p>
-<ol>
-<li>As a container constructor.<br>This role comes from the interface <code>IContainerGenerator</code>.<br>One, and only one, instance of the container is instantiated for this role.<br>The serializer asks this instance if this type of container can encapsulate a value, by calling functions as <code>IsValidType(Type type)</code>.<br>If the answer is yes, the serializer commands the container to produce another instance that will contain the value.</li>
-<li>As an actual container.<br>This role comes from the interface <code>IContainer</code>.<br>Every instance of this container contains a representation if the original value.<br>The deserializer</li>
-</ol>
-<p class="remarque">ITypeContainer inherits both the two interfaces (and consequently the two roles too) :<br><code>public interface ITypeContainer : IContainerGenerator, IContainer { }</code></p>
-<p>&nbsp;</p>
+	<p>Please note a container class can have two roles:</p>
+	<ol>
+		<li>As a container constructor.<br>This role comes from the interface <code>IContainerGenerator</code>.<br>One, and only one, instance of the container is instantiated for this role.<br>The serializer asks this instance if this type of container can encapsulate a value, by calling functions as <code>IsValidType(Type type)</code>.<br>If the answer is yes, the serializer commands the container to produce another instance that will contain the value.</li>
+		<li>As an actual container.<br>This role comes from the interface <code>IContainer</code>.<br>Every instance of this container contains a representation if the original value.<br>The deserializer</li>
+	</ol>
+	<p class="remarque">ITypeContainer inherits both the two interfaces (and consequently the two roles too) :<br><code>public interface ITypeContainer : IContainerGenerator, IContainer { }</code></p>
+	<p>&nbsp;</p>
 <p>Let&#39;s see them more in details:</p>
 <ul>
 <li>
@@ -211,7 +222,7 @@ Called on serialization. Returns true if this container applies to structure typ
 <span style="color: #000000">}</span>
 </pre>
 <p class="remarque">The right container is automatically found by UniversalSerializer, thanks to the global declaration.</p>
-<p>As you can see, the implementation is very easy.</p>
+	<p>As you can see, the implementation is very easy.</p>
 <h2><a id="mozTocId883671"></a>Tool help functions</h2>
 <p>The static class <code>Tools</code> offers some help:</p>
 <ul>
@@ -235,21 +246,29 @@ FieldInfo <span style="color: #a8227b">Tools<span style="color: #000000">.</span
 Returns the <code>FieldInfo</code> of the named field of the type. </li>
 </ul>
 <h2 id="share-your-containers">Please share your containers</h2>
-<p>If you wrote a container for a common type, please share it.<br>I will be more than happy to include it in the serializer.</p>
-</div>
-<div id="footer" role="navigation">
-<ul>
-<li><a href="../index.html">UniversalSerializer</a></li>
-<li><a href="../download.html">Download</a></li>
-<li><a href="index.html">Documentation</a></li>
-<li><a href="history.html">Versions</a></li>
-<li><a href="../donate.html">Donate</a></li>
-</ul>
-</div>
-</div>
+	<p>If you wrote a container for a common type, please share it.<br>I will be more than happy to include it in the serializer.</p>
+		
+
+	</div>
+	
+	
+	<div id="footer" role="navigation">
+		<ul>
+			<li><a href="../index.html">UniversalSerializer</a></li>
+			<li><a href="../download.html">Download</a></li>
+			<li><a href="index.html">Documentation</a></li>
+			<li><a href="history.html">Versions</a></li>
+			<li><a href="../donate.html">Donate</a></li>
+		</ul>
+	</div>
+	</div>
 <div id="footer2">
-<p>Copyright &copy; Christophe Bertrand. All rights reserved.</p>
+	<p>Copyright &copy; Christophe Bertrand. All rights reserved.</p>
 </div>
+
+
 </body>
+
+
 
 </html>

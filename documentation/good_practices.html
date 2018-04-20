@@ -1,12 +1,16 @@
 <!DOCTYPE HTML>
 <html dir="ltr" lang="en">
 
+
+
 <head>
 <meta content="text/html; charset=utf-8" http-equiv="content-type" />
 <meta content="en" http-equiv="content-language" />
 <meta content="Christophe Bertrand" name="author" />
 <meta name="viewport" content="width=device-width" />
+
 <title>UniversalSerializer - Attributes</title>
+
 <link href="../styles/style2.css" media="screen" rel="stylesheet" title="CSS" type="text/css" />
 <link href="../favicon.png" rel="icon" type="image/png" />
 <link href="../favicon.ico" rel="shortcut icon" type="image/x-icon" />
@@ -14,49 +18,56 @@
 
 <body>
 
+
 <div id="container">
-<div id="masthead" role="banner">
-<div id="logo_ext">
-<img id="logo" alt="" height="66" src="../images/logo.png" width="150" /></div>
-<div id="md">
-<div id="nh">
-<ul>
-<li><a href="contact.html">Contact</a></li>
-<li><a href="../author.html">The author</a></li>
-</ul>
-</div>
-<div class="navigation" role="navigation">
-<ul>
-<li><a href="../index.html">UniversalSerializer</a></li>
-<li><a href="../download.html">Download</a></li>
-<li><a href="index.html">Documentation</a></li>
-<li><a href="history.html">Versions</a></li>
-<li><a href="../donate.html">Donate</a></li>
-</ul>
-</div>
-</div>
-</div>
-<div id="page_content" role="main">
-<div class="navigation"  style="width: 100%; margin: 0 auto;">
-<div style="float: left; width: 2%;transform: rotate(270deg); transform-origin: 160% 160%;font-size:large">DOCU</div>
-<div style="background-color: #408080; float: right; width: 98%;">
-<div role="navigation">
-<ul>
-<li><a href="index.html">Presentation</a></li>
-<li><a href="examples.html">Examples</a></li>
-<li><a href="solutions_and_projects.html">Solutions (DLLs)</a></li>
-<li><a href="good_practices.html">Good practices</a></li>
-<li><a href="attributes.html">Attributes</a></li>
-<li><a href="containers.html">Containers</a></li>
-<li><a href="filters.html">Filters</a></li>
-<li><a href="errors.html">Errors on execution</a></li>
-<li><a href="license.html">License</a></li>
-<li><a href="history.html">History</a></li>
-<li><a href="faq.html">FAQ</a></li>
-</ul>
-</div>
-</div>
-</div>
+	
+	<div id="masthead" role="banner">
+		<div id="logo_ext">
+			<img id="logo" alt="" height="66" src="../images/logo.png" width="150" /></div>
+		<div id="md">
+			<div id="nh">
+				<ul>
+					<li><a href="contact.html">Contact</a></li>
+					<li><a href="../author.html">The author</a></li>
+				</ul>
+			</div>
+			
+			<div class="navigation" role="navigation">
+				<ul>
+					<li><a href="../index.html">UniversalSerializer</a></li>
+					<li><a href="../download.html">Download</a></li>
+					<li><a href="index.html">Documentation</a></li>
+					<li><a href="history.html">Versions</a></li>
+					<li><a href="../donate.html">Donate</a></li>
+				</ul>
+			</div>
+			</div>
+	</div>
+	
+	
+	<div id="page_content" role="main">
+		
+		<div class="navigation"  style="width: 100%; margin: 0 auto;">
+			<div style="float: left; width: 2%;transform: rotate(270deg); transform-origin: 160% 160%;font-size:large">DOCU</div>
+			<div style="background-color: #408080; float: right; width: 98%;">
+				<div role="navigation">
+					<ul>
+						<li><a href="index.html">Presentation</a></li>
+						<li><a href="examples.html">Examples</a></li>
+						<li><a href="solutions_and_projects.html">Solutions (DLLs)</a></li>
+						<li><a href="good_practices.html">Good practices</a></li>
+						<li><a href="attributes.html">Attributes</a></li>
+						<li><a href="containers.html">Containers</a></li>
+						<li><a href="filters.html">Filters</a></li>
+						<li><a href="errors.html">Errors on execution</a></li>
+						<li><a href="license.html">License</a></li>
+						<li><a href="history.html">History</a></li>
+						<li><a href="faq.html">FAQ</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
 <h1>Good practices</h1>
 <p>
 Your type design can help
@@ -64,10 +75,10 @@ UniversalSerializer in doing its job.</p>
 <div role="navigation">
 <ul  id="mozToc">
 <li>
-<a href="#Constructor">An adequate parametric 
-constructor</a></li>
-<li><a href="#List">A true IList&lt;T&gt;, not only an Enumerable</a></li>
-</ul>
+	<a href="#Constructor">An adequate parametric 
+	constructor</a></li>
+	<li><a href="#List">A true IList&lt;T&gt;, not only an Enumerable</a></li>
+	</ul>
 </div>
 <h2>
 <a id="Constructor"></a>An adequate parametric constructor</h2>
@@ -79,12 +90,12 @@ constructors.</span></p>
 Example:</p>
 <pre class="code_source"><span style="color:#2239a8; font-weight:bold">public class</span> ParametricConstructedClassWithPrivateField
 <span style="color:#000000">{</span>
-<span style="color:#2239a8; font-weight:bold">private readonly int</span><span style="color:#000000">[]</span> IntArray<span style="color:#000000">;</span>
+  <span style="color:#2239a8; font-weight:bold">private readonly int</span><span style="color:#000000">[]</span> IntArray<span style="color:#000000">;</span>
 
-<span style="color:#2239a8; font-weight:bold">public</span> <span style="color:#a8227b">ParametricConstructedClassWithPrivateField</span><span style="color:#000000">(</span><span style="color:#2239a8; font-weight:bold">int</span><span style="color:#000000">[]</span> intArray<span style="color:#000000">)</span>
-<span style="color:#000000">{</span>
-<span style="color:#2239a8; font-weight:bold">this</span><span style="color:#000000">.</span>IntArray <span style="color:#000000">=</span> intArray<span style="color:#000000">;</span>
-<span style="color:#000000">}</span>
+  <span style="color:#2239a8; font-weight:bold">public</span> <span style="color:#a8227b">ParametricConstructedClassWithPrivateField</span><span style="color:#000000">(</span><span style="color:#2239a8; font-weight:bold">int</span><span style="color:#000000">[]</span> intArray<span style="color:#000000">)</span>
+  <span style="color:#000000">{</span>
+    <span style="color:#2239a8; font-weight:bold">this</span><span style="color:#000000">.</span>IntArray <span style="color:#000000">=</span> intArray<span style="color:#000000">;</span>
+  <span style="color:#000000">}</span>
 <span style="color:#000000">}</span>
 </pre>
 <p>In this example, <span>UniversalSerializer detects it can use the parametric 
@@ -110,28 +121,36 @@ a writable collection while <code>ICollection</code> (not generic) is read-only.
 </p>
 <pre class="code_source"><span style="color:#2239a8; font-weight:bold">public class</span> L <span style="color:#000000">:</span> IEnumerable<span style="color:#000000">&lt;</span><span style="color:#2239a8; font-weight:bold">int</span><span style="color:#000000">&gt;</span>
 <span style="color:#000000">{</span>
-<span style="color:#2239a8; font-weight:bold">public void</span> <span style="color:#a8227b">Add</span><span style="color:#000000">(</span><span style="color:#2239a8; font-weight:bold">int</span> item<span style="color:#000000">)</span>
-<span style="color:#000000">{</span>
-<span style="color:#000000">...</span>
-<span style="color:#000000">}</span>
-<span style="color:#000000">...</span>
+  <span style="color:#2239a8; font-weight:bold">public void</span> <span style="color:#a8227b">Add</span><span style="color:#000000">(</span><span style="color:#2239a8; font-weight:bold">int</span> item<span style="color:#000000">)</span>
+  <span style="color:#000000">{</span>
+    <span style="color:#000000">...</span>
+  <span style="color:#000000">}</span>
+  <span style="color:#000000">...</span>
 <span style="color:#000000">}</span></pre>
 <p class="remarque">Please note this method (<code>Add</code> or <code>Insert</code>) can be private.<br>
 </p>
-</div>
-<div id="footer" role="navigation">
-<ul>
-<li><a href="../index.html">UniversalSerializer</a></li>
-<li><a href="../download.html">Download</a></li>
-<li><a href="index.html">Documentation</a></li>
-<li><a href="history.html">Versions</a></li>
-<li><a href="../donate.html">Donate</a></li>
-</ul>
-</div>
-</div>
+		
+
+	</div>
+	
+	
+	<div id="footer" role="navigation">
+		<ul>
+			<li><a href="../index.html">UniversalSerializer</a></li>
+			<li><a href="../download.html">Download</a></li>
+			<li><a href="index.html">Documentation</a></li>
+			<li><a href="history.html">Versions</a></li>
+			<li><a href="../donate.html">Donate</a></li>
+		</ul>
+	</div>
+	</div>
 <div id="footer2">
-<p>Copyright &copy; Christophe Bertrand. All rights reserved.</p>
+	<p>Copyright &copy; Christophe Bertrand. All rights reserved.</p>
 </div>
+
+
 </body>
+
+
 
 </html>

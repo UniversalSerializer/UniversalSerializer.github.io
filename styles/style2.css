@@ -280,11 +280,11 @@ h6 {
 }
 /* Styles pour les liens */
 a {
-	color: #8bf;
+	color: #adf;
 	text-decoration: none;
 }
 a:hover {
-	color: #e96;
+	color: #eb6;
 	text-decoration: underline;
 }
 .style_bold {
