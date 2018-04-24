@@ -5,9 +5,8 @@
 
 <head>
 <meta content="text/html; charset=utf-8" http-equiv="content-type" />
-<meta content="en" http-equiv="content-language" />
 <meta content="Christophe Bertrand" name="author" />
-<meta name="viewport" content="width=device-width" />
+<meta content="width=device-width" name="viewport" />
 
 <title>UniversalSerializer - Containers</title>
 
@@ -23,7 +22,7 @@
 	
 	<div id="masthead" role="banner">
 		<div id="logo_ext">
-			<img id="logo" alt="" height="66" src="../images/logo.png" width="150" /></div>
+			<img id="logo" alt="" src="../images/logo.png"  /></div>
 		<div id="md">
 			<div id="nh">
 				<ul>
@@ -44,8 +43,11 @@
 			</div>
 	</div>
 	
-	
-	<div id="page_content" role="main">
+	<div class="container2">
+		<div class="slide-left">
+		</div>
+		
+		<div id="page_content" role="main">
 		
 		<div class="navigation"  style="width: 100%; margin: 0 auto;">
 			<div style="float: left; width: 2%;transform: rotate(270deg); transform-origin: 160% 160%;font-size:large">DOCU</div>
@@ -249,7 +251,17 @@ Returns the <code>FieldInfo</code> of the named field of the type. </li>
 	<p>If you wrote a container for a common type, please share it.<br>I will be more than happy to include it in the serializer.</p>
 		
 
-	</div>
+		</div>
+		
+		<div class="slide-right">
+			<div class="info-on-slide" id="info1">
+				<p class="sub-title-slide">Donate</p>
+				If you find UniversalSerializer useful, please consider <a href="../donate.html">supporting the project by donating</a></div>
+			<div class="info-on-slide" id="info2">
+				<p class="sub-title-slide">Give time</p>
+				Besides donating money, you can <a href="../donate.html#give-time">contribute your time</a></div>
+		</div>
+		</div>
 	
 	
 	<div id="footer" role="navigation">
@@ -261,11 +273,32 @@ Returns the <code>FieldInfo</code> of the named field of the type. </li>
 			<li><a href="../donate.html">Donate</a></li>
 		</ul>
 	</div>
+	
+	<div id="footer2">
+		<p>Copyright &copy; Christophe Bertrand. All rights reserved.</p>
 	</div>
-<div id="footer2">
-	<p>Copyright &copy; Christophe Bertrand. All rights reserved.</p>
-</div>
+	</div>
 
+	
+	<script>
+		document.body.onload = function () { init() };
+
+		function init() {
+			for (var i = 1; i < 100; i++) {
+				var nom = "info" + i;
+				var x2 = document.getElementById(nom);
+				var existe = (typeof x2 !== 'undefined' && x2 != null);
+				if (!existe)
+					break;
+			}
+			var maxi = i - 1;
+			var h = Math.floor(Math.random() * maxi) + 1;
+			var e = document.getElementById("info" + h);
+			if (typeof e !== 'undefined' && e != null)
+				e.style.display = "inherit";
+		}
+
+	</script>
 
 </body>
 
