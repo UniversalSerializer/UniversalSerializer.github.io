@@ -10,7 +10,7 @@
 
 <title>UniversalSerializer - Examples</title>
 
-<link href="../styles/style2.css" media="screen" rel="stylesheet" title="CSS" type="text/css" />
+<link href="../styles/styles-communs.css" media="screen" rel="stylesheet" title="CSS" type="text/css" />
 <link href="../favicon.png" rel="icon" type="image/png" />
 <link href="../favicon.ico" rel="shortcut icon" type="image/x-icon" />
 </head>
@@ -117,7 +117,7 @@ var <span style="color:#2239a8; font-weight:bold">data</span> <span style="color
 <pre>
 var <span style="color:#2239a8; font-weight:bold">data</span> <span style="color:#000000">=</span> new Hashtable<span style="color:#000000">();</span> <span style="color:#2239a8; font-weight:bold">data</span><span style="color:#000000">.</span><span style="color:#2239a8; font-weight:bold">Add</span><span style="color:#000000">(</span><span style="color:#a8660d">0</span><span style="color:#000000">,</span> <span style="color:#a8660d">1</span><span style="color:#000000">);
 </span>
-<span style="color:#2239a8; font-weight:bold">using</span> <span style="color:#000000">(</span>var ser <span style="color:#000000">=</span> new UniversalSerializer<span style="color:#000000">(</span>&quot;TestXmlFormatter<span style="color:#000000">.</span>uniser<span style="color:#000000">.</span>xml&quot;<span style="color:#000000">,</span> SerializerFormatters<span style="color:#000000">.</span>XmlSerializationFormatter<span style="color:#000000">))</span>
+<span style="color:#2239a8; font-weight:bold">using</span> <span style="color:#000000">(</span>var ser <span style="color:#000000">=</span> new UniversalSerializer<span style="color:#000000">(</span>&quot;serialized<span style="color:#000000">.</span>uniser<span style="color:#000000">.</span>xml&quot;<span style="color:#000000">,</span> SerializerFormatters<span style="color:#000000">.</span>XmlSerializationFormatter<span style="color:#000000">))</span>
 <span style="color:#000000">{</span>
   ser<span style="color:#000000">.</span>Serialize<span style="color:#000000">(</span><span style="color:#2239a8; font-weight:bold">data</span><span style="color:#000000">);</span>
   var deserialized <span style="color:#000000">=</span> ser<span style="color:#000000">.</span>Deserialize<span style="color:#000000">&lt;</span>Hashtable<span style="color:#000000">&gt;();</span>
@@ -129,7 +129,7 @@ var <span style="color:#2239a8; font-weight:bold">data</span> <span style="color
 <pre>
 var <span style="color:#2239a8; font-weight:bold">data</span> <span style="color:#000000">=</span> new Hashtable<span style="color:#000000">();</span> <span style="color:#2239a8; font-weight:bold">data</span><span style="color:#000000">.</span><span style="color:#2239a8; font-weight:bold">Add</span><span style="color:#000000">(</span><span style="color:#a8660d">0</span><span style="color:#000000">,</span> <span style="color:#a8660d">1</span><span style="color:#000000">);
 </span>
-<span style="color:#2239a8; font-weight:bold">using</span> <span style="color:#000000">(</span>var ser <span style="color:#000000">=</span> new UniversalSerializer<span style="color:#000000">(</span>&quot;TestXmlFormatter<span style="color:#000000">.</span>uniser<span style="color:#000000">.</span>json&quot;<span style="color:#000000">,</span> SerializerFormatters<span style="color:#000000">.</span>JSONSerializationFormatter<span style="color:#000000">))</span>
+<span style="color:#2239a8; font-weight:bold">using</span> <span style="color:#000000">(</span>var ser <span style="color:#000000">=</span> new UniversalSerializer<span style="color:#000000">(</span>&quot;serialized<span style="color:#000000">.</span>uniser<span style="color:#000000">.</span>json&quot;<span style="color:#000000">,</span> SerializerFormatters<span style="color:#000000">.</span>JSONSerializationFormatter<span style="color:#000000">))</span>
 <span style="color:#000000">{</span>
   ser<span style="color:#000000">.</span>Serialize<span style="color:#000000">(</span><span style="color:#2239a8; font-weight:bold">data</span><span style="color:#000000">);</span>
   var deserialized <span style="color:#000000">=</span> ser<span style="color:#000000">.</span>Deserialize<span style="color:#000000">&lt;</span>Hashtable<span style="color:#000000">&gt;();</span>
@@ -142,7 +142,7 @@ var <span style="color:#2239a8; font-weight:bold">data</span> <span style="color
 
 <pre><span style="color:#2239a8; font-weight:bold">var</span> data <span style="color:#000000">=</span> <span style="color:#2239a8; font-weight:bold">new</span> System<span style="color:#000000">.</span>Windows<span style="color:#000000">.</span><span style="color:#a8227b">Window</span><span style="color:#000000">()</span> { Title = &quot;Hello!&quot; }<span style="color:#000000">;
 </span>
-<span style="color:#2239a8; font-weight:bold">using</span> <span style="color:#000000">(</span><span style="color:#2239a8; font-weight:bold">var</span> s <span style="color:#000000">=</span> <span style="color:#2239a8; font-weight:bold">new</span> <span style="color:#a8227b">UniversalSerializerWPF</span><span style="color:#000000">(</span><span style="color:#a8660d">&quot;serialized.uniser&quot;</span><span style="color:#000000">))</span>
+<span style="color:#2239a8; font-weight:bold">using</span> <span style="color:#000000">(</span><span style="color:#2239a8; font-weight:bold">var</span> s <span style="color:#000000">=</span> <span style="color:#2239a8; font-weight:bold">new</span> <span style="color:#a8227b">UniversalSerializerWPF</span><span style="color:#000000">(</span><span style="color:#a8660d">&quot;serialized WPF.uniser&quot;</span><span style="color:#000000">))</span>
 <span style="color:#000000">{</span>
   s<span style="color:#000000">.</span><span style="color:#a8227b">Serialize</span><span style="color:#000000">(</span>data<span style="color:#000000">);</span>
 <span style="color:#2239a8; font-weight:bold">  var</span> data2 <span style="color:#000000">=</span> s<span style="color:#000000">.</span>Deserialize<span style="color:#000000">&lt;</span>System<span style="color:#000000">.</span>Windows<span style="color:#000000">.</span>Window<span style="color:#000000">&gt;();</span>
@@ -155,7 +155,7 @@ var <span style="color:#2239a8; font-weight:bold">data</span> <span style="color
 
 <pre><span style="color:#2239a8; font-weight:bold">var</span> data <span style="color:#000000">=</span> <span style="color:#2239a8; font-weight:bold">new</span> System<span style="color:#000000">.</span>Windows<span style="color:#000000">.</span>Forms<span style="color:#000000">.</span><span style="color:#a8227b">Form</span><span style="color:#000000">()</span> { Text = &quot;Hello!&quot; }<span style="color:#000000">;
 </span>
-<span style="color:#2239a8; font-weight:bold">using</span> <span style="color:#000000">(</span><span style="color:#2239a8; font-weight:bold">var</span> s <span style="color:#000000">=</span> <span style="color:#2239a8; font-weight:bold">new</span> <span style="color:#a8227b">UniversalSerializerWinForm</span><span style="color:#000000">(</span><span style="color:#a8660d">&quot;serialized.uniser&quot;</span><span style="color:#000000">))</span>
+<span style="color:#2239a8; font-weight:bold">using</span> <span style="color:#000000">(</span><span style="color:#2239a8; font-weight:bold">var</span> s <span style="color:#000000">=</span> <span style="color:#2239a8; font-weight:bold">new</span> <span style="color:#a8227b">UniversalSerializerWinForm</span><span style="color:#000000">(</span><span style="color:#a8660d">&quot;serialized WinForm.uniser&quot;</span><span style="color:#000000">))</span>
 <span style="color:#000000">{</span>
   s<span style="color:#000000">.</span><span style="color:#a8227b">Serialize</span><span style="color:#000000">(</span>data<span style="color:#000000">);</span>
   <span style="color:#2239a8; font-weight:bold">var</span> data2 <span style="color:#000000">=</span> s<span style="color:#000000">.</span>Deserialize<span style="color:#000000">&lt;</span>System<span style="color:#000000">.</span>Windows<span style="color:#000000">.</span>Forms<span style="color:#000000">.</span>Form<span style="color:#000000">&gt;();</span>
