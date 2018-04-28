@@ -386,6 +386,7 @@ table {
 	background-color:#387848;
 }
 summary {
+	cursor: zoom-in;
 	margin-left:4rem;
 }
 details {
@@ -397,6 +398,12 @@ details[open] {
 	border-bottom:thin #C0C0C0 solid;
 	border-left:thick rgba(128,128,128,0.5) solid;
 	padding-left:1rem;
+}
+/* sommaire ouvert: */
+details[open] summary{
+	background-color:rgba(128,128,128,0.2);
+	cursor: zoom-out;
+	margin-left:3rem;
 }
 code {
 	font-family:Verdana, Geneva, Tahoma, sans-serif;
