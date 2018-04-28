@@ -4,41 +4,69 @@
 
 
 <head>
-<meta content="text/html; charset=UTF-8" http-equiv="content-type">
-<meta name="viewport" content="width=device-width" />
+<meta content="text/html; charset=utf-8" http-equiv="content-type" />
+<meta content="Christophe Bertrand" name="author" />
+<meta content="width=device-width" name="viewport" />
 
 <title>UniversalSerializer - History</title>
 
-<meta content="Christophe Bertrand" name="author">
-<link href="styles-communs.css" rel="stylesheet" type="text/css">
-<link href="theme-blanc.css" rel="stylesheet" type="text/css">
+<link href="../styles/styles-communs.css" media="screen" rel="stylesheet" title="CSS" type="text/css" />
+<link href="../favicon.png" rel="icon" type="image/png" />
+<link href="../favicon.ico" rel="shortcut icon" type="image/x-icon" />
 </head>
 
 <body>
 
-<div class="navigation" role="navigation">
-	<ul>
-		<li><a href="index.html">Presentation</a></li>
-		<li><a href="examples.html">Examples</a></li>
-		<li><a href="solutions_and_projects.html">Solutions (DLLs)</a></li>
-		<li><a href="good_practices.html">Good practices</a></li>
-		<li><a href="attributes.html">Attributes</a></li>
-		<li><a href="containers.html">Containers</a></li>
-		<li><a href="filters.html">Filters</a></li>
-		<li><a href="errors.html">Errors on execution</a></li>
-		<li><a href="license.html">License</a></li>
-		<li><a href="history.html">History</a></li>
-		<li><a href="faq.html">FAQ</a></li>
-		<li><a href="contact.html">Contact</a></li>
-	</ul>
-</div>
 
+<div id="container">
+	
+	<div id="masthead" role="banner">
+		<div id="logo_ext">
+			<img id="logo" alt="" src="../images/logo.png" /></div>
+		<div id="md">
+			<div id="nh">
+				<ul>
+					<li><a href="contact.html">Contact</a></li>
+					<li><a href="../author.html">The author</a></li>
+				</ul>
+			</div>
+			
+			<div class="navigation" role="navigation">
+				<ul>
+					<li><a href="../index.html">UniversalSerializer</a></li>
+					<li><a href="../download.html">Download</a></li>
+					<li><a href="index.html">Documentation</a></li>
+					<li><a href="history.html">Versions</a></li>
+					<li><a href="../donate.html">Donate</a></li>
+				</ul>
+			</div>
+			</div>
+	</div>
+	
 	<div class="container2">
 		<div class="slide-left">
 		</div>
-
+		
 		<div id="page_content" role="main">
-			
+		
+		<div class="navigation"  style="width: 100%; background-color: #408080; margin-top:-1.5rem">
+				<div role="navigation">
+					<ul>
+						<li><a href="index.html">Presentation</a></li>
+						<li><a href="examples.html">Examples</a></li>
+						<li><a href="solutions_and_projects.html">Solutions (DLLs)</a></li>
+						<li><a href="good_practices.html">Good practices</a></li>
+						<li><a href="attributes.html">Attributes</a></li>
+						<li><a href="containers.html">Containers</a></li>
+						<li><a href="filters.html">Filters</a></li>
+						<li><a href="errors.html">Errors on execution</a></li>
+						<li><a href="license.html">License</a></li>
+						<li><a href="history.html">History</a></li>
+						<li><a href="faq.html">FAQ</a></li>
+					</ul>
+				</div>
+		</div>
+		
 	<h1>History</h1>
 	<p>Here is the history of all versions.</p>
 	<p class="remarque">From version 3.18.2018.04, the version numbering is: "Main<strong>.</strong>Release#<strong>.</strong>Year<strong>.</strong>2-digits month".<br><br>Between version 3.14.7.9 and version 3.18.3.17, the version numbering was: "Main<strong>.</strong>Year less 2000<strong>.</strong>Month<strong>.</strong>Release#".<br><br>From 2017-07-29, the source code archive file names contain their own SHA-256 hashing code.</p>
@@ -219,18 +247,55 @@
 	<p><br></p>
 
 
-			</div>
+		
 
+		</div>
+		
 		<div class="slide-right">
-			<div class="info-on-slide" id="info1">
+			<div id="info1" class="info-on-slide">
 				<p class="sub-title-slide">Donate</p>
-				If you find UniversalSerializer useful, please consider <a href="http://universalserializer.com/donate.html">supporting the project by donating</a></div>
+				If you find UniversalSerializer useful, please consider <a href="../donate.html">supporting the project by donating</a></div>
+			<div id="info2" class="info-on-slide">
+				<p class="sub-title-slide">Give time</p>
+				Besides donating money, you can <a href="../donate.html#give-time">contribute your time</a></div>
 		</div>
 		</div>
 	
+	
+	<div id="footer" role="navigation">
+		<ul>
+			<li><a href="../index.html">UniversalSerializer</a></li>
+			<li><a href="../download.html">Download</a></li>
+			<li><a href="index.html">Documentation</a></li>
+			<li><a href="history.html">Versions</a></li>
+			<li><a href="../donate.html">Donate</a></li>
+		</ul>
+	</div>
+	
+	<div id="footer2">
+		<p>Copyright &copy; Christophe Bertrand. All rights reserved.</p>
+	</div>
+	</div>
 
-	
-	
+<script>
+		document.body.onload = function () { init() };
+
+		function init() {
+			for (var i = 1; i < 100; i++) {
+				var nom = "info" + i;
+				var x2 = document.getElementById(nom);
+				var existe = (typeof x2 !== 'undefined' && x2 != null);
+				if (!existe)
+					break;
+			}
+			var maxi = i - 1;
+			var h = Math.floor(Math.random() * maxi) + 1;
+			var e = document.getElementById("info" + h);
+			if (typeof e !== 'undefined' && e != null)
+				e.style.display = "inherit";
+		}
+
+	</script>
 
 </body>
 
