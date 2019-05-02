@@ -317,7 +317,7 @@ h6 {
 /* Styles pour les liens */
 a {
 	color: #adf;
-	text-decoration: none;
+	text-decoration: none; /* pas souligné */
 }
 a:hover {
 	color: #eb6;
@@ -402,6 +402,9 @@ summary {
 	font-weight: normal;
 	line-height:1.55rem;
 	color: #69e;	
+}
+details[open] summary {
+	font-weight:bold;
 }
 /* Edge and IE 11 look 'details' partly as the 'summary' */
 details {
@@ -492,17 +495,48 @@ li {
 }
 .button{
     background-color: #283;
-    font-size: 1.4rem;
-    padding: 0.54rem 0.72rem;
-    padding-bottom: 0.6rem;
+    font-size: 1.1rem;
+    padding: 0.4rem 0.7rem 0.4rem 0.7rem;
+    margin: 0.3rem 0.3rem 0.3rem 0.3rem;
     border-radius: 0.3rem;
+    border:thin #283 outset;
     color: #fff;
+    text-decoration:none;
+}
+a .button{
+    text-decoration:none;
+}
+a:hover .button{
+    background-color: #394;
+    text-decoration:none
+}
+.touche-de-clavier{
+    background-color: #233;
+    font-size: 1.1rem;
+    /*padding: 0.4rem 0.7rem 0.4rem 0.7rem;*/
+    padding: 0 0.2rem 0 0.2rem;
+    margin: 0.1rem 0.1rem 0.1rem 0.1rem;
+    border-radius: 0.3rem;
+    border:thin #233 outset;
+    color: #fff;	
+}
+.panel_text{
+    background-color: #fff;
+    font-size: 1.1rem;
+    padding: 0.4rem 0.7rem 0.4rem 0.7rem;
+    margin: 0.3rem 0.3rem 0.3rem 0.3rem;
+    border-radius: 0.3rem;
+    border:thin black solid;
+    color: #000;
 }
 strong {
 	color:#ff6;
 }
 img{
 	max-width:100%;
+}
+.bord_d_image{
+	border:thin rgba(0,0,0,0.25) solid;
 }
 .bord-bas
 {
@@ -601,6 +635,9 @@ img.centre {
 	width:8rem;
 	height:8.512rem;
 	margin:0.8rem 2rem 1rem 2rem;
+}
+.discret{
+	color: rgba(0, 0, 0, 0.5);
 }
 @media screen and (max-width: 480px)
 {
